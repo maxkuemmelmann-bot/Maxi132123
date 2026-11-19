@@ -5,8 +5,8 @@ Macht aus einem Skript (Textdatei) ein fertiges TikTok-Video:
   - Format 9:16 (1080x1920), immer über 1 Minute lang
   - Stimme: Edge-TTS (natürliche Stimme, braucht Internet).
     Ohne Internet bricht das Programm ab (oder: --stimme espeak für Roboterstimme)
-  - Hintergrund: selbst berechnete "Ball im Kreis"-Animation
-    (komplett selbst gemacht -> keine Urheberrechtsprobleme)
+  - Hintergrund: "Ball im Kreis"-Animation oder Obst-Rennen (STIL: rennen)
+    (komplett selbst gezeichnet -> keine Urheberrechtsprobleme)
   - Untertitel: große Wörter, das gerade gesprochene Wort ist gelb
 
 Benutzung:
@@ -28,6 +28,8 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+
+from rennen import Rennen
 
 # ---------------- Einstellungen ----------------
 B, H = 1080, 1920          # Breite, Höhe des Videos
@@ -56,22 +58,31 @@ def lade_font(groesse):
 
 # ---------------- 1. Skript lesen ----------------
 def lese_skript(pfad):
-    """Liest TITEL, BESCHREIBUNG und den Sprechtext (alles nach '---')."""
-    titel, beschreibung, text = "", "", []
+    """Liest die Kopfzeilen (TITEL:, BESCHREIBUNG:, STIL:, ...) und den Text nach '---'."""
+    kopf, text = {}, []
     im_text = False
     for zeile in Path(pfad).read_text(encoding="utf-8").splitlines():
         if im_text:
             text.append(zeile)
-        elif zeile.startswith("TITEL:"):
-            titel = zeile[6:].strip()
-        elif zeile.startswith("BESCHREIBUNG:"):
-            beschreibung = zeile[13:].strip()
         elif zeile.strip() == "---":
             im_text = True
-    sprechtext = " ".join(" ".join(text).split())   # Zeilenumbrüche weg
-    if not sprechtext:
+        elif ":" in zeile:
+            name, wert = zeile.split(":", 1)
+            kopf[name.strip().lower()] = wert.strip()
+    kopf["text"] = " ".join(" ".join(text).split())   # Zeilenumbrüche weg
+    if not kopf["text"]:
         sys.exit(f"{pfad}: Kein Text gefunden. Hast du die Zeile '---' vergessen?")
-    return titel, beschreibung, sprechtext
+    return kopf
+
+
+def marker_finden(text, marker):
+    """Sucht z. B. [WENDE] im Text. Gibt (Text ohne Marker, Wortnummer oder None) zurück."""
+    woerter = text.split()
+    if marker not in woerter:
+        return text, None
+    nummer = woerter.index(marker)
+    woerter.remove(marker)
+    return " ".join(woerter), nummer
 
 
 def in_saetze(text):
@@ -272,10 +283,16 @@ def speichere_wav(pfad, audio):
 
 
 def mache_video(skript, ausgabe_ordner, stimme, stil):
-    titel, beschreibung, text = lese_skript(skript)
+    kopf = lese_skript(skript)
+    titel, beschreibung = kopf.get("titel", ""), kopf.get("beschreibung", "")
     print(f"\n>> {skript.name}: {titel}")
     rng = random.Random(skript.name)          # gleiches Skript -> gleiche Animation
-    stil = stil or rng.choice(["wachsen", "chaos"])
+    stil = stil or kopf.get("stil", "").lower() or rng.choice(["wachsen", "chaos"])
+    # Marker für das Rennen: [WENDE] = Aufholjagd beginnt, [ZIEL] = Underdog gewinnt
+    text, wende_nr = marker_finden(kopf["text"], "[WENDE]")
+    text, ziel_nr = marker_finden(text, "[ZIEL]")
+    if ziel_nr is not None and wende_nr is not None and ziel_nr < wende_nr:
+        wende_nr -= 1                         # [ZIEL] stand davor -> Nummer verschiebt sich
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
@@ -302,12 +319,21 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         n_frames = int(dauer * FPS)
         n_samples = int(n_frames / FPS * SR)
 
-        # Audio: Stimme + Aufprall-Töne
-        bilder, aufpralle = simuliere(n_frames, stil, rng)
+        # Hintergrund vorbereiten + passende Geräusche
         stimme_audio = stimme_audio / (np.abs(stimme_audio).max() + 1e-6) * 0.9
         audio = np.zeros(n_samples, dtype=np.float32)
         audio[: len(stimme_audio)] = stimme_audio[:n_samples]
-        audio += aufprall_sound(aufpralle, n_samples)
+        if stil == "rennen":
+            wende = woerter[wende_nr][1] if wende_nr is not None else sprech_dauer * 0.68
+            ziel_zeit = woerter[min(ziel_nr, len(woerter) - 1)][1] if ziel_nr is not None else sprech_dauer * 0.93
+            ziel_zeit = max(ziel_zeit, wende + 4)
+            print(f"  Rennen: Aufholjagd ab {wende:.1f} s, Sieg bei {ziel_zeit:.1f} s")
+            rennen = Rennen(kopf.get("teilnehmer"), kopf.get("bahn"), kopf.get("wettkampf"),
+                            wende, ziel_zeit, n_frames, rng)
+            audio += rennen.sound(n_samples, SR)
+        else:
+            bilder, aufpralle = simuliere(n_frames, stil, rng)
+            audio += aufprall_sound(aufpralle, n_samples)
         speichere_wav(tmp / "audio.wav", audio)
 
         ausgabe_ordner.mkdir(parents=True, exist_ok=True)
@@ -322,6 +348,8 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
 
         font_unter = lade_font(100)
         font_titel = lade_font(56)
+        font_klein, font_name = lade_font(46), lade_font(30)
+        text_y = 560 if stil == "rennen" else CY   # Untertitel-Höhe
         gruppen = gruppiere(woerter, font_unter)
         g = 0                              # Index der aktuellen Untertitel-Gruppe
         spur = 10                          # Länge der Ball-Spur in Bildern
@@ -330,16 +358,19 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
             zeit = f / FPS
             bild = Image.new("RGB", (B, H), (10, 10, 20))
             d = ImageDraw.Draw(bild)
-            # Kreis-Arena mit wechselnder Farbe
-            d.ellipse([CX - RADIUS - 8, CY - RADIUS - 8, CX + RADIUS + 8, CY + RADIUS + 8],
-                      outline=farbe(zeit * 0.05 % 1), width=10)
-            # Ball-Spur (ältere Positionen dunkler) und Bälle
-            for k in range(spur, -1, -1):
-                if f - k < 0:
-                    continue
-                for x, y, r, fb in bilder[f - k]:
-                    d.ellipse([x - r, y - r, x + r, y + r], fill=farbe(fb, 1 - k / (spur + 2)),
-                              outline="white" if k == 0 else None, width=4)
+            if stil == "rennen":
+                rennen.zeichne(d, f, zeit, font_klein, font_name)
+            else:
+                # Kreis-Arena mit wechselnder Farbe
+                d.ellipse([CX - RADIUS - 8, CY - RADIUS - 8, CX + RADIUS + 8, CY + RADIUS + 8],
+                          outline=farbe(zeit * 0.05 % 1), width=10)
+                # Ball-Spur (ältere Positionen dunkler) und Bälle
+                for k in range(spur, -1, -1):
+                    if f - k < 0:
+                        continue
+                    for x, y, r, fb in bilder[f - k]:
+                        d.ellipse([x - r, y - r, x + r, y + r], fill=farbe(fb, 1 - k / (spur + 2)),
+                                  outline="white" if k == 0 else None, width=4)
             # Titel oben
             if titel:
                 zeichne_titel(d, titel, font_titel)
@@ -350,10 +381,10 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
                 teile = [(woerter[i][0].upper(),
                           (255, 230, 0) if woerter[i][1] <= zeit < woerter[i][2] else "white")
                          for i in gruppen[g]]
-                zeichne_text_mittig(d, teile, font_unter, CY)
+                zeichne_text_mittig(d, teile, font_unter, text_y)
             else:
-                zeichne_text_mittig(d, [("FOLG FÜR", (255, 230, 0))], font_unter, CY - 60)
-                zeichne_text_mittig(d, [("TEIL 2!", (255, 230, 0))], font_unter, CY + 60)
+                zeichne_text_mittig(d, [("FOLG FÜR", (255, 230, 0))], font_unter, text_y - 60)
+                zeichne_text_mittig(d, [("TEIL 2!", (255, 230, 0))], font_unter, text_y + 60)
             ffmpeg.stdin.write(bild.tobytes())
             if f % (FPS * 10) == 0:
                 print(f"  rendere ... {zeit:.0f}/{dauer:.0f} s")
@@ -370,15 +401,17 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
 
 def main():
     p = argparse.ArgumentParser(description="Macht Brainrot-TikToks aus Textskripten.")
-    p.add_argument("pfad", help="Skript-Datei (.txt) oder Ordner mit Skripten")
+    p.add_argument("pfade", nargs="+", help="Skript-Dateien (.txt) oder Ordner mit Skripten")
     p.add_argument("--out", default="videos", help="Ausgabe-Ordner (Standard: videos)")
     p.add_argument("--stimme", choices=["edge", "espeak", "auto"], default="edge",
                    help="edge = gute Stimme (Internet nötig), espeak = Roboter, auto = edge oder Roboter")
-    p.add_argument("--stil", choices=["wachsen", "chaos"], help="Hintergrund (sonst zufällig)")
+    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen"],
+                   help="Hintergrund (sonst aus dem Skript oder zufällig)")
     args = p.parse_args()
 
-    pfad = Path(args.pfad)
-    skripte = sorted(pfad.glob("*.txt")) if pfad.is_dir() else [pfad]
+    skripte = []
+    for pfad in map(Path, args.pfade):
+        skripte += sorted(pfad.glob("*.txt")) if pfad.is_dir() else [pfad]
     fehler = 0
     for s in skripte:
         if mache_video(s, Path(args.out), args.stimme, args.stil) is None:
