@@ -23,15 +23,9 @@
 
 ## Woche 1 (Tag 1–7) – Testen + Black-Friday-Vorlauf
 
-| Tag | Datum | 12:00 | 17:00 | 20:00 | Aufgabe |
-|---|---|---|---|---|---|
-| 1 | Fr 20.11. | S1 Backofen (F1) | S3 Entkalker (F2) | S7 Fusselrasierer (F6 Geschenk) | Kommentare beantworten |
-| 2 | Sa 21.11. | S2 Haarfänger (F1) | S9 Top-3 (F8) | S5 Kühlschrank (F4) | **Batching:** 15 Videos vorproduzieren |
-| 3 | So 22.11. | S8 Schwamm (F7) | S4 Bürste (F3 Avatar) | Geschenk: Entkalker (F6) | |
-| 4 | Mo 23.11. | S1 mit neuem Hook | S6 Fenster (F5) | S10 Dampfreiniger (F9) | |
-| 5 | Di 24.11. | „Black Friday: 3 Dinge, die sich lohnen“ (F8) | S2 als Animation (F2) | S7 mit neuem Hook | |
-| 6 | Mi 25.11. | Fugenstift (F1) | Geschenk für Eltern (F6) | S3 als Top-3 (F8) | |
-| 7 | Do 26.11. | „Morgen ist Black Friday – das kaufe ich“ (F8) | Bestes Video der Woche, neuer Hook | Haarfänger (F7 Fakten) | **Analyse:** Top-3 Videos + Top-3 Produkte notieren |
+> **Aktualisiert:** Woche 1 nutzt nur die **5 Startprodukte** (Fugenstift, Backofen-Gel, Fusselrasierer, Haarfänger, Mini-Sauger). Alle 21 Posts mit Format und fertiger Caption stehen in **`08-start-jetzt.md`** und sind in `tracker.xlsx` eingetragen.
+
+Am Donnerstag (26.11.): **Analyse** – Top-3 Videos + Top-3 Produkte notieren.
 
 ## Woche 2 (Tag 8–14) – Black Week 🔥
 

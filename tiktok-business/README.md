@@ -10,8 +10,11 @@ Nische: **Haushalts-Hacks & Putz-Gadgets** · Einnahmen: **TikTok Shop (Affiliat
 | [04-posting-plan.md](04-posting-plan.md) | 30-Tage-Plan ab 20.11.2026 (Black Friday + Weihnachten) |
 | [05-geld-verdienen.md](05-geld-verdienen.md) | Geschäftsmodell + Rechnung bis 1.000 €/Tag |
 | [06-ki-workflow.md](06-ki-workflow.md) | KI-Tools, Ablauf, Prompt-Vorlagen, was KI darf und was nicht |
+| [07-gewinner-produkte.md](07-gewinner-produkte.md) | 20 Produkt-Kandidaten + 5-Punkte-Check |
+| [08-start-jetzt.md](08-start-jetzt.md) | **Hier anfangen:** Schritt-für-Schritt-Start, 2 neue Skripte, 21 Captions für Woche 1 |
+| [tracker.xlsx](tracker.xlsx) | Tabelle für Produkte, Videos und Verdienst (rechnet automatisch) |
 
-**Reihenfolge zum Starten:** 06 lesen → Vorbereitung in 04 → Skripte aus 03 produzieren → jeden Donnerstag Zahlen aus 05 prüfen.
+**Reihenfolge zum Starten:** `08-start-jetzt.md` abarbeiten → dabei 06 und 07 nutzen → Zahlen in `tracker.xlsx` eintragen → jeden Donnerstag auswerten.
 
 > **Wichtigste Regel:** KI für Stimme, Skript, Avatar und Problem-Szenen. Das **Ergebnis des Produkts** wird immer mit **echten** Clips gezeigt. Alles andere ist irreführende Werbung.
 >
