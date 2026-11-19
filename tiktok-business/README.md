@@ -19,6 +19,6 @@ Nische: **Haushalts-Hacks & Putz-Gadgets** · Einnahmen: **TikTok Shop (Affiliat
 
 **Reihenfolge zum Starten:** `09-ohne-kaufen.md` lesen und mir Produktbilder schicken → Account nach `08-start-jetzt.md` Schritt 1 einrichten (Schritt 2–3 Kaufen/Filmen entfällt vorerst) → dabei 06 und 07 nutzen → Zahlen in `tracker.xlsx` eintragen → jeden Donnerstag auswerten.
 
-> **Wichtigste Regel:** KI für Stimme, Skript, Avatar und Problem-Szenen. Das **Ergebnis des Produkts** wird immer mit **echten** Clips gezeigt. Alles andere ist irreführende Werbung.
+> **Wichtigste Regel:** KI für Stimme, Skript, Avatar und Problem-Szenen. Das **Ergebnis des Produkts** wird nie per KI gezeigt, sondern nur mit echten Bildern: eigene Clips oder als „Herstellerbild“ gekennzeichnete Händlerbilder (mit Erlaubnis). Alles andere ist irreführende Werbung.
 >
 > Alle Zahlen zu Provisionen und Voraussetzungen sind Schätzungen bzw. mein Wissensstand. Shop-Provisionen gibt es erst ab 18.
