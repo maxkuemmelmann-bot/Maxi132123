@@ -1,0 +1,184 @@
+{
+  "info": "Woche 1 (20.11.-26.11.2026). Bilder: produkte/<produkt>/1.jpg ... 4.jpg (1 = Hauptbild, 2-4 = weitere Bilder vom Shop-Eintrag). problem.jpg = optionale KI-Szene.",
+  "videos": [
+    {"id": "01", "name": "backofen_weihnachten", "datum": "Fr 20.11. 12:00",
+     "caption": "Der Backofen vor dem Weihnachtsessen... 😬 #backofenreinigen #putzhacks #haushaltstipps #cleantok #werbung",
+     "slides": [
+       {"bild": "backofengel/problem", "optional": true, "text": "Dein Backofen vor dem Weihnachtsessen?", "label": "KI-generiert"},
+       {"bild": "backofengel/1", "text": "Einsprühen statt stundenlang schrubben"},
+       {"bild": "backofengel/2", "text": "Einwirken lassen, dann abwischen"},
+       {"bild": "backofengel/3", "text": "Ergebnis laut Hersteller"},
+       {"bild": "backofengel/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "02", "name": "fugenstift_neue_fugen", "datum": "Fr 20.11. 17:00",
+     "caption": "Weiße Fugen ohne Schrubben? 🤯 #fugenreinigen #badputzen #putzhacks #cleantok #werbung",
+     "slides": [
+       {"bild": "fugenstift/problem", "optional": true, "text": "Graue Fugen im Bad?", "label": "KI-generiert"},
+       {"bild": "fugenstift/1", "text": "Dieser Stift malt Fugen wieder weiß"},
+       {"bild": "fugenstift/2", "text": "Einfach über die Fuge ziehen"},
+       {"bild": "fugenstift/3", "text": "Tipp: Bei Schimmel erst Schimmel entfernen"},
+       {"bild": "fugenstift/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "03", "name": "fusselrasierer_geschenk", "datum": "Fr 20.11. 20:00",
+     "caption": "Geschenk-Idee für Leute, die alles haben 🎁 #geschenkidee #weihnachtsgeschenk #fusselrasierer #werbung",
+     "slides": [
+       {"bild": "fusselrasierer/problem", "optional": true, "text": "Geschenk für Leute, die schon alles haben", "label": "KI-generiert"},
+       {"bild": "fusselrasierer/1", "text": "Jeder hat diesen einen Pulli voller Fusseln"},
+       {"bild": "fusselrasierer/2", "text": "Einmal drüber - Fusseln weg"},
+       {"bild": "fusselrasierer/3", "text": "Klein, günstig, nützlich"},
+       {"bild": "fusselrasierer/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "04", "name": "haarfaenger_abfluss", "datum": "Sa 21.11. 12:00",
+     "caption": "Was in deinem Abfluss wohnt 🫣 #abfluss #badputzen #haushaltstipps #cleantok #werbung",
+     "slides": [
+       {"bild": "haarfaenger/problem", "optional": true, "text": "Dein Abfluss läuft schlecht ab?", "label": "KI-generiert"},
+       {"bild": "haarfaenger/1", "text": "Meist sind es Haare im Rohr"},
+       {"bild": "haarfaenger/2", "text": "Dieser Fänger hält sie vorher auf"},
+       {"bild": "haarfaenger/3", "text": "Ausleeren, abspülen, fertig"},
+       {"bild": "haarfaenger/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "05", "name": "minisauger_geschenk", "datum": "Sa 21.11. 17:00",
+     "caption": "Für alle mit Auto, Sofa oder Haustier 🎁 #geschenkidee #autoreinigung #haushalt #werbung",
+     "slides": [
+       {"bild": "minisauger/problem", "optional": true, "text": "Krümel im Auto, die nie weggehen?", "label": "KI-generiert"},
+       {"bild": "minisauger/1", "text": "Geschenk-Idee für Auto, Sofa und Haustier"},
+       {"bild": "minisauger/2", "text": "Kabellos und klein"},
+       {"bild": "minisauger/3", "text": "Kommt in Ecken, wo der große Sauger nicht hinkommt"},
+       {"bild": "minisauger/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "06", "name": "top3_unter15", "datum": "Sa 21.11. 20:00",
+     "caption": "3 Haushalts-Gadgets unter 15 € 👇 #haushaltsgadgets #putzhacks #tiktokshop #werbung",
+     "slides": [
+       {"bild": "haarfaenger/1", "text": "3 Haushalts-Gadgets unter 15 Euro"},
+       {"bild": "haarfaenger/2", "text": "Nr. 3: Haarfänger für den Abfluss"},
+       {"bild": "fugenstift/2", "text": "Nr. 2: Fugenstift für graue Fugen"},
+       {"bild": "backofengel/2", "text": "Nr. 1: Backofen-Gel - einsprühen statt schrubben"},
+       {"bild": "backofengel/1", "text": "Alle 3 im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "07", "name": "backofen_rauch", "datum": "So 22.11. 12:00",
+     "caption": "Darum riecht es beim Vorheizen verbrannt #küchenhacks #backofen #haushaltstipps #werbung",
+     "slides": [
+       {"bild": "backofengel/problem", "optional": true, "text": "Es riecht verbrannt, wenn du den Ofen anmachst?", "label": "KI-generiert"},
+       {"bild": "backofengel/2", "text": "Alte Fettreste verbrennen bei jedem Vorheizen mit"},
+       {"bild": "backofengel/1", "text": "Einmal gründlich reinigen hilft"},
+       {"bild": "backofengel/3", "text": "Ergebnis laut Hersteller"},
+       {"bild": "backofengel/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "08", "name": "fusselrasierer_pov", "datum": "So 22.11. 17:00",
+     "caption": "POV: Dein Lieblingspulli sieht aus wie 10 Jahre alt 🥲 #fusselrasierer #wintermode #lifehack #werbung",
+     "slides": [
+       {"bild": "fusselrasierer/problem", "optional": true, "text": "POV: Dein Lieblingspulli sieht alt aus", "label": "KI-generiert"},
+       {"bild": "fusselrasierer/2", "text": "Die Knötchen heißen Pilling - entstehen durch Reibung"},
+       {"bild": "fusselrasierer/1", "text": "Ein Fusselrasierer schneidet sie ab"},
+       {"bild": "fusselrasierer/3", "text": "Pulli wegwerfen? Nicht nötig"},
+       {"bild": "fusselrasierer/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "09", "name": "fugenstift_warum", "datum": "So 22.11. 20:00",
+     "caption": "Warum Fugen grau werden (und was hilft) #fugen #badputzen #putzwissen #werbung",
+     "slides": [
+       {"bild": "fugenstift/problem", "optional": true, "text": "Warum werden Fugen grau?", "label": "KI-generiert"},
+       {"bild": "fugenstift/2", "text": "Fugen sind porös - Schmutz und Seife setzen sich fest"},
+       {"bild": "fugenstift/1", "text": "Erst reinigen, dann mit dem Stift nachziehen"},
+       {"bild": "fugenstift/3", "text": "Hält nicht ewig, ist aber schnell gemacht"},
+       {"bild": "fugenstift/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "10", "name": "minisauger_auto", "datum": "Mo 23.11. 12:00",
+     "caption": "POV: Du hast seit Monaten nicht im Auto gesaugt 🚗 #autoreinigung #autopflege #putzhacks #werbung",
+     "slides": [
+       {"bild": "minisauger/problem", "optional": true, "text": "POV: Monatelang nicht im Auto gesaugt", "label": "KI-generiert"},
+       {"bild": "minisauger/2", "text": "Keine Steckdose an der Straße?"},
+       {"bild": "minisauger/1", "text": "Akku-Sauger: einfach ins Handschuhfach"},
+       {"bild": "minisauger/3", "text": "Auch für Sofa und Tastatur"},
+       {"bild": "minisauger/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "11", "name": "haarfaenger_verstopft", "datum": "Mo 23.11. 17:00",
+     "caption": "Darum ist dein Abfluss ständig verstopft #abflussverstopft #haushaltstipps #cleantok #werbung",
+     "slides": [
+       {"bild": "haarfaenger/problem", "optional": true, "text": "Darum ist dein Abfluss ständig verstopft", "label": "KI-generiert"},
+       {"bild": "haarfaenger/2", "text": "Haare + Seifenreste = Pfropfen im Rohr"},
+       {"bild": "haarfaenger/1", "text": "Besser: gar nicht erst reinlassen"},
+       {"bild": "haarfaenger/3", "text": "Spart Rohrreiniger und Nerven"},
+       {"bild": "haarfaenger/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "12", "name": "backofen_15min", "datum": "Mo 23.11. 20:00",
+     "caption": "Einwirken lassen statt 1 Stunde schrubben 🙌 #backofen #weihnachten #putzhacks #werbung",
+     "slides": [
+       {"bild": "backofengel/1", "text": "Backofen putzen ohne stundenlang zu schrubben"},
+       {"bild": "backofengel/2", "text": "Schritt 1: Einsprühen"},
+       {"bild": "backofengel/2", "text": "Schritt 2: Einwirken lassen (Zeit laut Packung)"},
+       {"bild": "backofengel/3", "text": "Schritt 3: Abwischen. Handschuhe nicht vergessen"},
+       {"bild": "backofengel/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "13", "name": "top3_blackfriday", "datum": "Di 24.11. 12:00",
+     "caption": "3 Dinge unter 20 € für deine Black-Friday-Liste #blackfriday #haushalt #tiktokshop #werbung",
+     "slides": [
+       {"bild": "fusselrasierer/1", "text": "3 Dinge unter 20 Euro für deine Black-Friday-Liste"},
+       {"bild": "haarfaenger/1", "text": "Nr. 3: Abfluss-Haarfänger"},
+       {"bild": "fugenstift/1", "text": "Nr. 2: Fugenstift"},
+       {"bild": "fusselrasierer/2", "text": "Nr. 1: Fusselrasierer"},
+       {"bild": "fusselrasierer/1", "text": "Alle 3 im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "14", "name": "fusselrasierer_hook2", "datum": "Di 24.11. 17:00",
+     "caption": "Warum hat mir das niemand früher gesagt?! 😮‍💨 #fusselrasierer #satisfying #geschenkidee #werbung",
+     "slides": [
+       {"bild": "fusselrasierer/2", "text": "Warum hat mir das niemand früher gesagt?"},
+       {"bild": "fusselrasierer/1", "text": "Fusselrasierer statt neuer Pullover"},
+       {"bild": "fusselrasierer/3", "text": "Auch für Sofa, Mantel und Decken"},
+       {"bild": "fusselrasierer/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "15", "name": "fugenstift_3gruende", "datum": "Di 24.11. 20:00",
+     "caption": "3 Gründe, warum deine Fugen nicht weiß werden #fugenreinigen #putztipps #badputzen #werbung",
+     "slides": [
+       {"bild": "fugenstift/problem", "optional": true, "text": "3 Gründe, warum deine Fugen nicht weiß werden", "label": "KI-generiert"},
+       {"bild": "fugenstift/2", "text": "1. Fugen sind porös"},
+       {"bild": "fugenstift/3", "text": "2. Feuchtigkeit trocknet nie richtig"},
+       {"bild": "fugenstift/2", "text": "3. Schrubben raut sie noch mehr auf"},
+       {"bild": "fugenstift/1", "text": "Schnelle Lösung: Fugenstift - Link im Warenkorb", "sek": 3.5}]},
+
+    {"id": "16", "name": "minisauger_eltern", "datum": "Mi 25.11. 12:00",
+     "caption": "Geschenk für Eltern, die „nichts brauchen“ 🎁 #geschenkfürmama #geschenkfürpapa #weihnachten #werbung",
+     "slides": [
+       {"bild": "minisauger/1", "text": "Geschenk für Eltern, die angeblich nichts brauchen"},
+       {"bild": "minisauger/2", "text": "Für Auto, Sofa und Krümel auf dem Tisch"},
+       {"bild": "minisauger/3", "text": "Kabellos - kein Kabelsalat"},
+       {"bild": "minisauger/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "17", "name": "haarfaenger_lohnt", "datum": "Mi 25.11. 17:00",
+     "caption": "Lohnt sich dieses kleine Teil für den Abfluss? #haushaltsgadgets #badputzen #abfluss #werbung",
+     "slides": [
+       {"bild": "haarfaenger/1", "text": "Lohnt sich dieses kleine Teil?"},
+       {"bild": "haarfaenger/2", "text": "Plus: billig, passt in die meisten Abflüsse"},
+       {"bild": "haarfaenger/3", "text": "Minus: muss regelmäßig geleert werden"},
+       {"bild": "haarfaenger/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "18", "name": "backofen_lohnt", "datum": "Mi 25.11. 20:00",
+     "caption": "Backofen-Gel: Plus und Minus #backofenreinigen #cleantok #haushaltstipps #werbung",
+     "slides": [
+       {"bild": "backofengel/1", "text": "Backofen-Gel: Plus und Minus"},
+       {"bild": "backofengel/2", "text": "Plus: weniger Schrubben"},
+       {"bild": "backofengel/3", "text": "Minus: stark - Handschuhe tragen, lüften"},
+       {"bild": "backofengel/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "19", "name": "top3_geschenke", "datum": "Do 26.11. 12:00",
+     "caption": "Morgen ist Black Friday: 3 Geschenk-Ideen 🎁 #blackfriday #geschenkideen #tiktokshop #werbung",
+     "slides": [
+       {"bild": "minisauger/1", "text": "Morgen ist Black Friday: 3 Geschenk-Ideen"},
+       {"bild": "fugenstift/1", "text": "Nr. 3: Fugenstift - für die WG"},
+       {"bild": "fusselrasierer/1", "text": "Nr. 2: Fusselrasierer - für alle mit Wollpulli"},
+       {"bild": "minisauger/2", "text": "Nr. 1: Mini-Akkusauger - für Autofahrer"},
+       {"bild": "minisauger/1", "text": "Alle 3 im gelben Warenkorb", "sek": 3.5}]},
+
+    {"id": "20", "name": "wiederholung_platzhalter", "datum": "Do 26.11. 17:00",
+     "caption": "Bestes Video der Woche mit neuem Hook – ich passe es an, wenn du mir die Zahlen schickst",
+     "slides": [
+       {"bild": "fusselrasierer/1", "text": "Platzhalter: wird nach deinen Zahlen ersetzt"}]},
+
+    {"id": "21", "name": "fusselrasierer_plusminus", "datum": "Do 26.11. 20:00",
+     "caption": "Fusselrasierer: Plus und Minus #fusselrasierer #winter #geschenkidee #werbung",
+     "slides": [
+       {"bild": "fusselrasierer/1", "text": "Fusselrasierer: Plus und Minus"},
+       {"bild": "fusselrasierer/2", "text": "Plus: Pullover sehen wieder gepflegter aus"},
+       {"bild": "fusselrasierer/3", "text": "Minus: Bei feinen Stoffen vorsichtig sein"},
+       {"bild": "fusselrasierer/1", "text": "Link im gelben Warenkorb", "sek": 3.5}]}
+  ]
+}

@@ -1,5 +1,7 @@
 # 08 – Jetzt starten: Umsetzung Schritt für Schritt
 
+> **Update:** Du musst vorerst **nichts kaufen und nichts filmen**. Die Videos baue ich aus Produktbildern, siehe `09-ohne-kaufen.md`. Schritt 1 (Account) bleibt, Schritt 2–3 (Kaufen, Clips filmen) machst du erst später für Gewinner-Produkte. Profilbild: `assets/logo.png`.
+
 Alles, was ich vorbereiten kann, ist fertig. Die Schritte unten kannst **nur du** machen (Account, Kauf, Filmen). Hake sie der Reihe nach ab.
 
 **Tracking:** `tracker.xlsx` (öffnen mit Excel, Google Sheets oder Numbers). Die ersten 21 Videos sind schon eingetragen.
