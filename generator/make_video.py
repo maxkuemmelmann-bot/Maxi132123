@@ -34,6 +34,8 @@ B, H = 1080, 1920          # Breite, Höhe des Videos
 FPS = 30                   # Bilder pro Sekunde
 SR = 24000                 # Audio-Samplerate
 MIN_SEKUNDEN = 62          # TikTok zahlt nur für Videos ÜBER 1 Minute -> Puffer
+START_TEMPO = 10           # Sprechtempo in % (positiv = schneller)
+MIN_TEMPO = -8             # langsamer als das klingt komisch
 EDGE_STIMME = "de-DE-ConradNeural"
 CX, CY, RADIUS = B // 2, 1010, 440   # Kreis-Arena für die Bälle
 
@@ -90,18 +92,20 @@ def stille_abschneiden(a, schwelle=0.01):
     return a[laut[0]:laut[-1] + 1] if len(laut) else a
 
 
-def tts_edge(satz, pfad):
+def tts_edge(satz, pfad, tempo=0):
     import edge_tts   # nur laden, wenn gebraucht
-    asyncio.run(edge_tts.Communicate(satz, EDGE_STIMME, rate="+10%").save(str(pfad)))
+    rate = f"{tempo:+d}%"          # z. B. "+10%" = 10 % schneller, "-5%" = langsamer
+    asyncio.run(edge_tts.Communicate(satz, EDGE_STIMME, rate=rate).save(str(pfad)))
 
 
-def tts_espeak(satz, pfad):
-    subprocess.run(["espeak-ng", "-v", "de", "-s", "165", "-w", str(pfad), satz],
+def tts_espeak(satz, pfad, tempo=0):
+    woerter_pro_min = str(int(160 * (1 + tempo / 100)))
+    subprocess.run(["espeak-ng", "-v", "de", "-s", woerter_pro_min, "-w", str(pfad), satz],
                    check=True, capture_output=True)
 
 
-def sprich(saetze, stimme, tmp):
-    """Spricht Satz für Satz. Gibt Audio + Liste (wort, start, ende) zurück."""
+def sprich(saetze, stimme, tmp, tempo=0):
+    """Spricht Satz für Satz. Gibt Audio, Liste (wort, start, ende) und die Stimme zurück."""
     if stimme in ("edge", "auto"):
         try:
             tts_edge("Test.", tmp / "test.mp3")
@@ -117,7 +121,7 @@ def sprich(saetze, stimme, tmp):
     pause = np.zeros(int(SR * 0.12), dtype=np.float32)
     for i, satz in enumerate(saetze):
         datei = tmp / f"satz{i}.{'mp3' if stimme == 'edge' else 'wav'}"
-        tts_edge(satz, datei) if stimme == "edge" else tts_espeak(satz, datei)
+        tts_edge(satz, datei, tempo) if stimme == "edge" else tts_espeak(satz, datei, tempo)
         audio = stille_abschneiden(datei_zu_array(datei))
         dauer = len(audio) / SR
         # Wörter nach ihrer Länge über den Satz verteilen (lange Wörter = mehr Zeit)
@@ -130,7 +134,7 @@ def sprich(saetze, stimme, tmp):
             start += laenge
         teile += [audio, pause]
         t += dauer + len(pause) / SR
-    return np.concatenate(teile), woerter
+    return np.concatenate(teile), woerter, stimme
 
 
 # ---------------- 3. Ball-Physik ----------------
@@ -275,11 +279,24 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
-        stimme_audio, woerter = sprich(in_saetze(text), stimme, tmp)
+        # Erst zügig sprechen (Brainrot = schnell). Ist es zu kurz für über 1 Minute,
+        # wird das Tempo automatisch so weit gesenkt, dass es passt (höchstens auf -8 %).
+        tempo = START_TEMPO
+        saetze = in_saetze(text)
+        stimme_audio, woerter, stimme = sprich(saetze, stimme, tmp, tempo)
         sprech_dauer = len(stimme_audio) / SR
-        if sprech_dauer < MIN_SEKUNDEN - 10:
-            fehlen = int((MIN_SEKUNDEN - sprech_dauer) * 2.6)
-            print(f"  FEHLER: Nur {sprech_dauer:.0f} s Sprache. Schreib ca. {fehlen} Wörter mehr.")
+        ziel_dauer = MIN_SEKUNDEN - 1
+        if sprech_dauer < ziel_dauer:
+            noetig = math.floor(((1 + tempo / 100) * sprech_dauer / ziel_dauer - 1) * 100)
+            if noetig >= MIN_TEMPO:
+                print(f"  {sprech_dauer:.1f} s ist zu kurz -> spreche mit Tempo {noetig:+d} %")
+                tempo = noetig
+                stimme_audio, woerter, stimme = sprich(saetze, stimme, tmp, tempo)
+                sprech_dauer = len(stimme_audio) / SR
+        print(f"  Sprechdauer: {sprech_dauer:.1f} s (Tempo {tempo:+d} %)")
+        if sprech_dauer < MIN_SEKUNDEN - 4:
+            fehlen = math.ceil((MIN_SEKUNDEN - sprech_dauer) * 3)
+            print(f"  FEHLER: Text zu kurz für über 1 Minute. Schreib ca. {fehlen} Wörter mehr.")
             return None
         dauer = max(MIN_SEKUNDEN, sprech_dauer + 1.5)
         n_frames = int(dauer * FPS)
