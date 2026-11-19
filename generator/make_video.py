@@ -3,8 +3,8 @@ Brainrot-Video-Generator
 ------------------------
 Macht aus einem Skript (Textdatei) ein fertiges TikTok-Video:
   - Format 9:16 (1080x1920), immer über 1 Minute lang
-  - Stimme: Edge-TTS (natürliche Stimme, braucht Internet),
-    wenn das nicht geht: espeak-ng (Roboterstimme, offline)
+  - Stimme: Edge-TTS (natürliche Stimme, braucht Internet).
+    Ohne Internet bricht das Programm ab (oder: --stimme espeak für Roboterstimme)
   - Hintergrund: selbst berechnete "Ball im Kreis"-Animation
     (komplett selbst gemacht -> keine Urheberrechtsprobleme)
   - Untertitel: große Wörter, das gerade gesprochene Wort ist gelb
@@ -102,10 +102,13 @@ def tts_espeak(satz, pfad):
 
 def sprich(saetze, stimme, tmp):
     """Spricht Satz für Satz. Gibt Audio + Liste (wort, start, ende) zurück."""
-    if stimme == "edge":
+    if stimme in ("edge", "auto"):
         try:
             tts_edge("Test.", tmp / "test.mp3")
+            stimme = "edge"
         except Exception as fehler:
+            if stimme == "edge":     # gute Stimme verlangt -> lieber abbrechen als Roboter
+                sys.exit(f"Edge-TTS nicht erreichbar ({fehler}). Internet prüfen!")
             print(f"  Edge-TTS nicht erreichbar ({type(fehler).__name__}) -> nutze espeak-ng")
             stimme = "espeak"
     print(f"  Stimme: {stimme}")
@@ -352,7 +355,8 @@ def main():
     p = argparse.ArgumentParser(description="Macht Brainrot-TikToks aus Textskripten.")
     p.add_argument("pfad", help="Skript-Datei (.txt) oder Ordner mit Skripten")
     p.add_argument("--out", default="videos", help="Ausgabe-Ordner (Standard: videos)")
-    p.add_argument("--stimme", choices=["edge", "espeak"], default="edge")
+    p.add_argument("--stimme", choices=["edge", "espeak", "auto"], default="edge",
+                   help="edge = gute Stimme (Internet nötig), espeak = Roboter, auto = edge oder Roboter")
     p.add_argument("--stil", choices=["wachsen", "chaos"], help="Hintergrund (sonst zufällig)")
     args = p.parse_args()
 

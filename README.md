@@ -32,4 +32,4 @@ Die Videos landen im Ordner `videos/`.
 - `ffmpeg not found` → ffmpeg ist nicht installiert oder nicht im PATH.
 - „Kein Text gefunden“ → im Skript fehlt die Zeile `---` vor dem Text.
 - „Schreib ca. X Wörter mehr“ → das Skript ist zu kurz für über 1 Minute.
-- Roboterstimme → Edge-TTS braucht Internet; ohne Internet nimmt das Programm espeak-ng.
+- „Edge-TTS nicht erreichbar“ → die gute Stimme braucht Internet. Notlösung: `--stimme espeak` (Roboterstimme, nicht zum Posten geeignet).
