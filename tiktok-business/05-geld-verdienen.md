@@ -1,135 +1,119 @@
-# 05 – Wie das Business Geld verdient (inkl. Rechnung für 1.000 €/Tag)
+# 05 – Wie das Business Geld verdient (TikTok Shop, inkl. Rechnung für 1.000 €/Tag)
 
-> ⚠️ **Ehrlich vorweg:** 1.000 € am Tag (≈ 30.000 €/Monat) schafft nur ein sehr kleiner Teil der Creator, meist nach 6–18 Monaten täglicher Arbeit. Die meisten neuen Accounts verdienen im ersten Jahr wenig oder nichts. Die Zahlen unten sind **Schätzungen**: Auszahlungsraten und Provisionen ändern sich oft und unterscheiden sich je nach Land und Kategorie. Prüfe die aktuellen Werte immer in der TikTok-App.
-
----
-
-## 1. Die zwei Einnahmequellen
-
-### A) TikTok Shop – Affiliate (Hauptmotor)
-- Du verlinkst Produkte von Händlern im TikTok Shop in deinen Videos oder Lives.
-- Kauft jemand über deinen Link, bekommst du **Provision** = Prozentsatz vom Verkaufspreis.
-- Typisch: **5–20 %**, bei Haushalt/Putzen oft **10–15 %**. Manche Händler zahlen mehr (bei „Target Collaborations“ oder direkten Deals).
-- Kein Lager, kein Versand, kein Kundenservice – das macht der Händler.
-
-**Formel:**
-```
-Tagesverdienst Shop = Aufrufe × Kaufquote × Ø Produktpreis × Provision
-```
-
-### B) Creator Rewards Program (Zusatzeinkommen)
-- TikTok zahlt dir Geld pro 1.000 **qualifizierte** Aufrufe von Videos **über 1 Minute**.
-- „Qualifiziert“ = vereinfacht: echte Aufrufe aus der „Für dich“-Seite, nicht von dir selbst, nicht gekauft. Nicht jeder Aufruf zählt.
-- **RPM** (= „Revenue per Mille“, Verdienst pro 1.000 qualifizierte Aufrufe): Für Deutschland grob **0,40–1,00 €** (unsichere Schätzung, schwankt stark).
-
-**Formel:**
-```
-Tagesverdienst CRP = qualifizierte Aufrufe ÷ 1.000 × RPM
-```
+> ⚠️ **Ehrlich vorweg:** 1.000 € am Tag (≈ 30.000 €/Monat) schafft nur ein sehr kleiner Teil der Affiliates, meist nach vielen Monaten täglicher Arbeit. Die meisten neuen Accounts verdienen anfangs wenig oder nichts. Alle Zahlen sind **Schätzungen**, Provisionen und Regeln ändern sich oft. Prüfe die aktuellen Werte im TikTok-Creator-Center.
 
 ---
 
-## 2. Annahmen für die Rechnung
+## 1. Das Geschäftsmodell in einem Satz
+Du machst KI-produzierte Videos zu Haushaltsprodukten, verlinkst das Produkt im **gelben Warenkorb**, und wenn jemand kauft, bekommst du **Provision** vom Händler. Lager, Versand und Kundenservice übernimmt der Händler.
 
-| Annahme | Wert | Erklärung |
+```
+Verdienst = Aufrufe × Kaufquote × Ø Produktpreis × Provision
+```
+
+- **Kaufquote** = wie viele von 1.000 Zuschauern kaufen (Käufe ÷ Aufrufe)
+- **Provision** = Prozentsatz vom Verkaufspreis, den der Händler dir zahlt (typisch 5–20 %, Haushalt oft 10–15 %)
+
+**Creator Rewards?** Spielt hier keine Rolle mehr: Komplett KI-generierte Videos werden oft nicht als „originaler Inhalt“ zugelassen, und Shop-Videos sollten kurz sein. Das Geld kommt also **nur aus dem Shop**.
+
+---
+
+## 2. Annahmen
+
+| Annahme | Basis | Gut optimiert |
 |---|---|---|
-| Ø Produktpreis | 20 € | Typischer Putz-/Haushaltsartikel |
-| Ø Provision | 15 % | → **3,00 € pro Verkauf** |
-| Kaufquote | 0,1 % | 1 Kauf pro 1.000 Aufrufe eines Shop-Videos (gute Shop-Videos schaffen mehr, schlechte viel weniger) |
-| CRP-RPM | 0,50 € | Mittlerer Schätzwert |
-| Anteil qualifizierter Aufrufe | 70 % | Nicht jeder Aufruf zählt |
+| Ø Produktpreis | 20 € | 30 € (Mix mit teureren Geräten) |
+| Ø Provision | 15 % | 15 % (+ Bonus-Deals mit Händlern) |
+| **Verdienst pro Verkauf** | **3,00 €** | **4,50 €** |
+| Kaufquote | 0,1 % (1 von 1.000) | 0,2 % (2 von 1.000) |
+| **Verdienst pro 1.000 Aufrufe** | **3,00 €** | **9,00 €** |
 
-**Daraus folgt:**
-- 1.000 Aufrufe auf einem Shop-Video ≈ **3,00 €**
-- 1.000 Aufrufe auf einem CRP-Video ≈ 1.000 × 0,7 ÷ 1.000 × 0,50 € ≈ **0,35 €**
-
-👉 **Ein Shop-Aufruf ist hier ca. 8–9× so viel wert wie ein CRP-Aufruf.** Deshalb ist der Shop der Hauptmotor.
+**Zur KI-Frage, ehrlich:** KI-Videos haben vermutlich eine **niedrigere Kaufquote** als Videos, in denen ein echter Mensch ein Produkt zeigt, weil Zuschauer ihnen weniger vertrauen. Genaue Zahlen dazu kenne ich nicht. Deshalb sind die **echten Produkt-Clips** in jedem Video so wichtig: Sie halten die Kaufquote oben.
 
 ---
 
-## 3. Rechnung: So kommt man auf 1.000 € pro Tag
+## 3. Rechnung: 1.000 € pro Tag
 
-**Ziel-Aufteilung:** 850 € Shop + 150 € CRP
-
-### Shop: 850 € / Tag
+### Basis-Szenario
 ```
-850 € ÷ 3,00 € pro Verkauf  = ca. 284 Verkäufe pro Tag
-284 Verkäufe ÷ 0,1 % Kaufquote = ca. 284.000 Aufrufe pro Tag auf Shop-Videos
-```
-
-### CRP: 150 € / Tag
-```
-150 € ÷ 0,50 € RPM × 1.000 = 300.000 qualifizierte Aufrufe
-300.000 ÷ 70 %             = ca. 430.000 Aufrufe pro Tag auf CRP-Videos
+1.000 € ÷ 3,00 € pro Verkauf   = 334 Verkäufe pro Tag
+334 Verkäufe ÷ 0,1 %           = 334.000 Aufrufe pro Tag
+334.000 ÷ 3 Videos pro Tag     = ca. 111.000 Aufrufe pro Video (im Schnitt!)
 ```
 
-### Zusammen
-| | Pro Tag | Pro Monat |
+### Gut optimiertes Szenario
+```
+1.000 € ÷ 4,50 € pro Verkauf   = 223 Verkäufe pro Tag
+223 Verkäufe ÷ 0,2 %           = 111.000 Aufrufe pro Tag
+111.000 ÷ 3 Videos pro Tag     = ca. 37.000 Aufrufe pro Video
+```
+
+| | Basis | Optimiert |
 |---|---|---|
-| Aufrufe Shop-Videos | 284.000 | ca. 8,5 Mio. |
-| Aufrufe CRP-Videos | 430.000 | ca. 13 Mio. |
-| **Aufrufe gesamt** | **ca. 714.000** | **ca. 21 Mio.** |
-| Verkäufe | 284 | ca. 8.500 |
-| **Verdienst** | **1.000 €** | **ca. 30.000 €** |
+| Verkäufe pro Tag | 334 | 223 |
+| Aufrufe pro Tag | 334.000 | 111.000 |
+| Aufrufe pro Monat | ca. 10 Mio. | ca. 3,3 Mio. |
+| Aufrufe pro Video (3/Tag) | 111.000 | 37.000 |
+| **Verdienst pro Tag** | **1.000 €** | **1.000 €** |
 
-**Bei 3 Videos pro Tag** heißt das: Jedes Video braucht im Schnitt ca. **240.000 Aufrufe**. Das ist ein Account mit grob **200.000–500.000 Followern** und regelmäßigen viralen Videos.
+**Wichtig:** TikTok-Aufrufe sind extrem ungleich verteilt. Meist bringen 1–2 Videos von 20 fast alle Verkäufe. „37.000 im Schnitt“ heißt in der Praxis: viele Videos mit 500–2.000 Aufrufen und ab und zu eins mit 300.000+.
 
 ---
 
-## 4. Die drei Hebel (wenn die Aufrufe nicht reichen)
+## 4. Die 5 Hebel (in dieser Reihenfolge angehen)
 
-Statt nur mehr Aufrufe zu jagen, kann man an den anderen Zahlen der Formel drehen:
+| # | Hebel | Wie | Wirkung |
+|---|---|---|---|
+| 1 | **Kaufquote** | Echte Produkt-Clips, klares Ergebnis, ehrlicher Nachteil (schafft Vertrauen), klarer Call-to-Action | 0,1 % → 0,2 % halbiert die nötigen Aufrufe |
+| 2 | **Gewinner-Produkte** | Produkt mit Verkäufen → 5–15 weitere Videos dazu. Produkte ohne Verkäufe nach 5 Videos → raus | Größter Einzel-Hebel in der Praxis |
+| 3 | **Produktpreis** | 20–30 % der Videos zu Geräten für 40–80 € (Dampfreiniger, Fenster-Sauger) | Mehr € pro Verkauf |
+| 4 | **Provision** | Händler direkt anschreiben, sobald du Verkäufe hast; nach höherer Provision oder Bonus fragen | 15 % → 20 % = −25 % nötige Aufrufe |
+| 5 | **Menge** | Mit KI auf 4–5 Videos/Tag hoch, oder 2. Account (z. B. Küche/Kochen-Gadgets) | Mehr Chancen auf virale Videos |
 
-| Hebel | Von → Auf | Effekt auf benötigte Shop-Aufrufe |
-|---|---|---|
-| **Kaufquote** verbessern (bessere Demos, klarer Call-to-Action, Produkte die wirklich wirken) | 0,1 % → 0,2 % | 284.000 → **142.000** |
-| **Teurere Produkte** (z. B. Akku-Sauger, Dampfreiniger für 60 €) | 20 € → 40 € | halbiert sich nochmal |
-| **Höhere Provision** (Händler direkt anfragen, Target Collaborations) | 15 % → 20 % | −25 % |
-| **TikTok LIVE** mit Shop | – | Lives verkaufen oft mehrere Produkte am Stück, Kaufquote deutlich höher |
-| **Zweiter Account** in Nachbar-Nische (z. B. Küche/Kochen-Gadgets) | – | Aufrufe auf zwei Accounts verteilt |
-
-**Beispiel mit verbesserten Hebeln:** Kaufquote 0,2 %, Ø Preis 30 €, Provision 15 % → 4,50 € pro Verkauf, 9,00 € pro 1.000 Aufrufe. Für 850 € Shop braucht man dann nur noch **ca. 95.000 Shop-Aufrufe pro Tag**.
+**Saison nutzen:** Black Friday (27.11.2026) und Weihnachten sind die stärksten Verkaufswochen. Danach kommt im Januar die Aufräum- und Ausmist-Saison, die für Haushalt ebenfalls gut ist.
 
 ---
 
 ## 5. Realistischer Wachstumspfad (wenn es gut läuft)
 
-| Zeitpunkt | Follower | Aufrufe/Tag | Verdienst/Tag | Was passiert |
+| Zeitpunkt | Aufrufe/Tag | Verkäufe/Tag | Verdienst/Tag | Was passiert |
 |---|---|---|---|---|
-| Monat 1 | 0–10.000 | 1.000–20.000 | 0–10 € | Testen, Format finden, Monetarisierung freischalten |
-| Monat 3 | 10.000–40.000 | 20.000–80.000 | 20–100 € | Erste Gewinner-Produkte, CRP läuft |
-| Monat 6 | 50.000–150.000 | 100.000–300.000 | 150–500 € | 3 Videos/Tag, regelmäßige Lives, Händler-Deals |
-| Monat 12 | 200.000+ | 400.000–800.000 | 500–1.000+ € | Zweiter Account, evtl. Helfer für Schnitt |
+| Monat 1 | 1.000–30.000 | 0–20 | 0–60 € | Testen, Shop freischalten, erste Gewinner finden |
+| Monat 3 | 20.000–100.000 | 20–150 | 60–450 € | 3–5 Gewinner-Produkte, Händler-Kontakte |
+| Monat 6 | 80.000–250.000 | 100–400 | 300–1.000 € | 4–5 Videos/Tag, höhere Provisionen |
+| Monat 12 | 150.000–400.000 | 200–600 | 700–1.800 € | 2 Accounts, evtl. Helfer |
 
-Das ist ein **guter** Verlauf, kein Durchschnitt. Ein Viral-Video kann alles beschleunigen, ein Monat ohne Reichweite kann alles bremsen.
+Das ist ein **guter** Verlauf, kein Durchschnitt. Es kann auch deutlich langsamer gehen oder ganz scheitern.
 
 ---
 
-## 6. Kosten (damit du nicht nur Umsatz siehst)
+## 6. Kosten
 
-| Posten | Kosten |
+| Posten | Kosten (ca., ohne Gewähr) |
 |---|---|
-| Stativ, Licht, Mikro | einmalig ca. 50–80 € |
-| Testprodukte (bis Gratis-Proben kommen) | ca. 30–60 € / Monat |
-| CapCut | 0 € (Pro optional ca. 10 €/Monat) |
-| Später: Cutter (Freelancer) | ab ca. 5–15 € pro Video |
-| **Steuern** | Siehe unten – der größte „Kostenpunkt“ |
+| Testprodukte (bis Gratis-Muster kommen) | 30–80 € / Monat |
+| KI-Video-Generator | 10–30 € / Monat |
+| KI-Stimme (z. B. ElevenLabs) | 0–22 € / Monat (CapCut-Stimme gratis) |
+| KI-Avatar (optional, z. B. HeyGen) | ca. 25–30 € / Monat |
+| Schnitt (CapCut) | 0 € |
+| **Summe Start** | **ca. 40–160 € / Monat** |
+| Steuern | siehe unten |
 
 ---
 
-## 7. ⚠️ Wichtig: Alter, Recht, Steuern
+## 7. ⚠️ Alter, Recht, Steuern
 
-- **Mindestalter 18:** Sowohl Creator Rewards als auch TikTok-Shop-Affiliate setzen (nach meinem Stand) **18 Jahre** voraus. Wenn du jünger bist, kannst du den Account trotzdem schon aufbauen (Reichweite, Follower, Erfahrung), aber **das Geld-Verdienen läuft erst ab 18** – oder über einen Erwachsenen, der den Account rechtlich führt. Einfach ein falsches Alter angeben ist ein Regelverstoß und kann zur Sperre und zum Verlust der Auszahlungen führen.
-- **Gewerbe:** Wer regelmäßig Geld mit TikTok verdient, muss in Deutschland in der Regel ein **Gewerbe anmelden** (bei Minderjährigen braucht es dafür die Zustimmung der Eltern und des Familiengerichts).
-- **Steuern:** Einnahmen müssen versteuert werden (Einkommensteuer, ggf. Umsatzsteuer, ab einer Grenze Gewerbesteuer). Von 1.000 € Umsatz pro Tag bleibt nach Steuern deutlich weniger übrig. Lass dich ab den ersten regelmäßigen Einnahmen von einem Steuerberater beraten.
-- **Werbekennzeichnung:** Affiliate-Videos sind Werbung und müssen gekennzeichnet sein.
-- **KI-Inhalte:** KI-generierte Stimmen/Bilder müssen bei TikTok gekennzeichnet werden. Reine KI-Massenware ohne eigenen Beitrag wird oft nicht für CRP zugelassen.
+- **Mindestalter 18:** TikTok-Shop-Affiliate setzt nach meinem Stand **18 Jahre** voraus. Bist du jünger, kannst du den Account schon aufbauen, aber die Provisionen laufen erst ab 18 oder über einen Erwachsenen, der den Account rechtlich führt. Ein falsches Alter anzugeben führt zu Sperre und Verlust der Auszahlungen.
+- **KI-Kennzeichnung:** Realistische KI-Inhalte müssen bei TikTok als KI-generiert markiert werden.
+- **Keine KI-Ergebnisse:** Die Wirkung eines Produkts nie per KI darstellen, das ist irreführende Werbung (TikTok-Shop-Regeln + Wettbewerbsrecht/UWG). Details: `06-ki-workflow.md`.
+- **Werbekennzeichnung:** Affiliate-Videos sind Werbung. TikTok markiert Shop-Videos automatisch, zusätzlich „#werbung“ in die Beschreibung.
+- **Gewerbe & Steuern:** Regelmäßige Einnahmen → Gewerbe anmelden (unter 18 nur mit Zustimmung der Eltern und des Familiengerichts), Einkommensteuer, ggf. Umsatzsteuer und Gewerbesteuer. Ab den ersten regelmäßigen Einnahmen zum Steuerberater.
 
 ---
 
-## 8. Zusammenfassung in 5 Sätzen
-1. Das Business verdient über **Provisionen im TikTok Shop** (Hauptteil) und **Creator Rewards** für Videos über 1 Minute (Zusatz).
-2. Für 1.000 €/Tag braucht man mit den Basis-Annahmen ca. **700.000 Aufrufe pro Tag**, mit besserer Kaufquote und teureren Produkten deutlich weniger.
-3. Der wichtigste Hebel ist nicht „mehr Videos“, sondern **Videos, die verkaufen** (Kaufquote).
-4. Realistisch ist das Ziel eher nach **12+ Monaten** – wenn überhaupt.
-5. Geld verdienen geht erst **ab 18**; den Account aufbauen kannst du schon jetzt.
+## 8. Zusammenfassung
+1. Geld kommt **nur aus TikTok-Shop-Provisionen**: Aufrufe × Kaufquote × Preis × Provision.
+2. Für 1.000 €/Tag braucht man **ca. 110.000–330.000 Aufrufe pro Tag**, je nachdem wie gut die Videos verkaufen.
+3. KI macht die Produktion schnell und billig. **Verkaufen tun aber die echten Produkt-Clips.**
+4. Der wichtigste Hebel: **Gewinner-Produkte finden und mit vielen Videos ausschlachten.**
+5. Realistisch eher nach 6–12+ Monaten, Geld verdienen erst **ab 18**.

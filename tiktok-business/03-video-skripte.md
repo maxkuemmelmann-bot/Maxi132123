@@ -1,144 +1,175 @@
-# 03 – 10 fertige Video-Skripte
+# 03 – 10 fertige KI-Shop-Video-Skripte
 
-**Aufbau:** 5 kurze **Shop-Videos** (Produkt verkaufen) + 5 lange **CRP-Videos** (> 1 Minute, damit sie Geld aus dem Creator Rewards Program bringen).
+**Alle 10 Videos sind TikTok-Shop-Videos**, faceless und so weit wie erlaubt KI-generiert. Wie man sie produziert: `06-ki-workflow.md`.
 
 **Legende:**
-- 🎬 = Was man sieht (nur Hände/Produkt, kein Gesicht)
-- 🎙️ = Voiceover (gesprochener Text)
-- 📝 = Text auf dem Bildschirm
-- 🛒 = Produkt im Video verlinken (gelber Warenkorb)
+- 🤖 = KI-generiert (Szene, Animation oder Avatar)
+- 📦 = **echter** Produkt-Clip (selbst gefilmt oder Händler-Material mit Erlaubnis), Pflicht bei jeder Ergebnis-/Wirkungs-Szene
+- 🎙️ = KI-Stimme · 📝 = Text auf dem Bildschirm
+- KI-Prompts sind auf Englisch (funktioniert in Video-Tools besser)
 
-**Faustregel Länge:** Ca. 150 gesprochene Wörter ≈ 1 Minute. CRP-Videos daher mit mind. 160–180 Wörtern + Pausen planen, Ziel: **65–90 Sekunden**.
-
----
-
-## 🛒 SHOP-VIDEOS (15–40 Sekunden)
-
-### Skript 1 – Fugenreiniger-Stift
-**Hook #7** · Länge ca. 25 Sek. · 🛒 Fugen-Reinigungsstift
-
-| Zeit | 🎬 Bild | 🎙️ Voiceover | 📝 Text |
-|---|---|---|---|
-| 0–2 s | Nahaufnahme schwarze Fugen in der Dusche | „Diese Fugen waren schwarz. Gib mir 30 Sekunden.“ | Schwarze Fugen? 🤢 |
-| 2–6 s | Stift wird geschüttelt, angesetzt | „Ich nehm nur diesen Stift hier.“ | |
-| 6–15 s | Stift wird über Fuge gezogen, Fuge wird sichtbar weiß | „Einfach drüberziehen – keine Bürste, kein Schrubben.“ | |
-| 15–20 s | Split-Screen Vorher/Nachher | „Links vorher, rechts nachher.“ | VORHER / NACHHER |
-| 20–25 s | Stift in die Kamera, Finger zeigt nach unten | „Kostet weniger als ein Döner. Link ist im gelben Warenkorb.“ | Link im Warenkorb 👇 |
+**Für alle Videos:** KI-Label beim Posten aktivieren · Produkt im gelben Warenkorb verlinken · Ziel-Länge 20–35 Sek. (Shop-Videos dürfen kurz sein, hier zählt die Kaufquote, nicht die Länge).
 
 ---
 
-### Skript 2 – Duschkopf entkalken
-**Hook #9** · Länge ca. 30 Sek. · 🛒 Entkalker-Tabs oder Entkalkungsgel
+## Format 1: Problem → Lösung
 
-| Zeit | 🎬 Bild | 🎙️ Voiceover | 📝 Text |
-|---|---|---|---|
-| 0–3 s | Verkalkter Duschkopf, Wasser spritzt schief | „Mein Duschkopf vorher … und nach einer Nacht.“ | Nur 1 Nacht ⏰ |
-| 3–10 s | Beutel mit Wasser + Tab wird über den Duschkopf gebunden | „Beutel, Wasser, eine Tablette, Gummiband drum. Fertig.“ | |
-| 10–14 s | Zeitraffer Uhr / Fenster dunkel → hell | „Dann einfach schlafen gehen.“ | 8 Stunden später… |
-| 14–24 s | Beutel ab, Duschkopf glänzt, gleichmäßiger Wasserstrahl | „Und jetzt guck dir diesen Strahl an. Wie neu.“ | |
-| 24–30 s | Packung in die Kamera | „Eine Packung reicht für Monate. Link unten.“ | 🛒 Im Warenkorb |
+### Skript 1 – Backofen-Reinigungsgel (ca. 10–15 €)
+**Hook #4** · 28 Sek.
 
----
-
-### Skript 3 – Elektrische Putzbürste
-**Hook #28** · Länge ca. 35 Sek. · 🛒 Akku-Putzbürste mit Aufsätzen
-
-| Zeit | 🎬 Bild | 🎙️ Voiceover | 📝 Text |
-|---|---|---|---|
-| 0–3 s | Paket wird geöffnet | „TikTok hat mich gezwungen, das zu kaufen. Lohnt es sich?“ | Hype oder Müll? |
-| 3–8 s | Bürste + 4 Aufsätze auf dem Tisch | „Akku-Bürste, vier Aufsätze, kostet um die 25 Euro.“ | |
-| 8–14 s | Test 1: Herdplatte mit Fettrand | „Test eins: der Herd.“ | Test 1 🔥 |
-| 14–20 s | Test 2: Waschbecken-Abfluss | „Test zwei: der Abfluss-Rand, an den man nie rankommt.“ | Test 2 🚿 |
-| 20–27 s | Test 3: Turnschuhsohle | „Und Test drei: meine Sneaker.“ | Test 3 👟 |
-| 27–35 s | Alle drei Ergebnisse nebeneinander | „Ehrlich? Drei von drei. Ich hätte nicht gedacht, dass ich das sage – aber kaufen. Link im Warenkorb.“ | Urteil: ✅ KAUFEN |
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Close-up 9:16, extremely greasy oven door, burnt-on stains, warm kitchen light, realistic, no people, no text“* | „Dein Backofen sieht so aus? Dann pass auf.“ | Kennst du das? 🤢 |
+| 3–7 s | 🤖 | *„Vertical 9:16, hands in yellow gloves scrubbing an oven door hard, no face, frustrated motion“* | „Stundenlang schrubben bringt fast nichts.“ | |
+| 7–11 s | 📦 | Gel wird auf die echte Scheibe gesprüht | „Stattdessen: einsprühen, 15 Minuten warten.“ | ⏱️ 15 Min. |
+| 11–20 s | 📦 | Schwamm wischt Dreck in Bahnen ab | „Und dann einfach abwischen.“ | Echtes Ergebnis, kein Filter |
+| 20–24 s | 📦 | Saubere Scheibe, Ofenlicht an | „Unbedingt Handschuhe tragen, das Zeug ist stark.“ | |
+| 24–28 s | 📦 | Flasche in Großaufnahme | „Link ist im gelben Warenkorb.“ | 🛒 Link unten |
 
 ---
 
-### Skript 4 – Kühlschrank-Organizer
-**Hook #23** · Länge ca. 25 Sek. · 🛒 Durchsichtige Kühlschrank-Boxen (Set)
+### Skript 2 – Abfluss-Haarfänger (ca. 8–12 €)
+**Hook #16-Variante** · 22 Sek.
 
-| Zeit | 🎬 Bild | 🎙️ Voiceover | 📝 Text |
-|---|---|---|---|
-| 0–2 s | Tür öffnet sich, chaotischer Kühlschrank | „POV: Besuch kommt in 20 Minuten.“ | POV: Besuch kommt 😳 |
-| 2–15 s | Zeitraffer: alles raus, Boxen rein, einsortieren (Musik, kein Text) | – (nur Musik / ASMR-Geräusche) | |
-| 15–20 s | Tür schließt, öffnet sich wieder – perfekt sortiert | „Okay. Jetzt dürfen sie kommen.“ | |
-| 20–25 s | Nahaufnahme Box | „Das 6er-Set ist im Warenkorb.“ | 🛒 Set im Warenkorb |
-
----
-
-### Skript 5 – Backofen-Reinigungsgel
-**Hook #4** · Länge ca. 30 Sek. · 🛒 Backofen-Reiniger-Gel
-
-| Zeit | 🎬 Bild | 🎙️ Voiceover | 📝 Text |
-|---|---|---|---|
-| 0–3 s | Verkrustete Backofenscheibe, Sprühkopf kommt ins Bild | „Schau, was passiert, wenn ich das hier auf den Backofen sprühe.“ | |
-| 3–8 s | Gel wird aufgetragen | „Einsprühen. 15 Minuten warten.“ | ⏱️ 15 Min. |
-| 8–18 s | Mit Schwamm wird abgewischt, Dreck löst sich in Bahnen | „Und dann einfach … abwischen. Hör dir dieses Geräusch an.“ | So satisfying 😮‍💨 |
-| 18–24 s | Scheibe sauber, Licht im Ofen an | „Das ist derselbe Ofen.“ | Gleicher Ofen! |
-| 24–30 s | Flasche in die Kamera | „Handschuhe anziehen, Fenster auf – und Link im Warenkorb.“ | 🛒 Link unten |
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Vertical 9:16, slow zoom into a dark clogged shower drain, water pooling, realistic, no people“* | „Das hier ist in deinem Abfluss. Jeden Tag.“ | |
+| 3–7 s | 🤖 | *„Simple 3D animation cross-section of a drain pipe slowly filling with hair, educational style“* | „Haare sammeln sich im Rohr, bis nichts mehr abläuft.“ | Illustration |
+| 7–15 s | 📦 | Haarfänger wird eingesetzt, Wasser läuft ab | „Dieses kleine Teil fängt alles ab, bevor es ins Rohr kommt.“ | |
+| 15–19 s | 📦 | Hand nimmt Haarfänger raus, abklopfen | „Einmal die Woche ausleeren, fertig.“ | Kein Abflussreiniger mehr |
+| 19–22 s | 📦 | Produkt in der Hand | „Kostet weniger als eine Flasche Rohrfrei. Link im Warenkorb.“ | 🛒 |
 
 ---
 
-## 💶 CRP-VIDEOS (> 1 Minute)
+## Format 2: Animierte Erklärung
 
-> Hier steht der **komplette Voiceover-Text**. Die Bilder darunter sind Vorschläge. Du kannst bei passenden Stellen trotzdem ein Produkt verlinken (🛒), das verdient dann doppelt.
+### Skript 3 – Entkalker-Tabs für Duschkopf (ca. 8–12 €)
+**Hook #3** · 30 Sek.
 
-### Skript 6 – Die 7-Minuten-Küchenroutine
-**Hook #22** · Ziel: ca. 75 Sek.
-
-🎙️ **Voiceover:**
-> „Die 7-Minuten-Küchenroutine, die alles verändert. Ich mache sie jeden Abend, und meine Küche sieht morgens immer so aus. Schritt eins: Timer auf sieben Minuten. Das ist wichtig, denn wenn du weißt, dass es gleich vorbei ist, fängst du überhaupt erst an. Schritt zwei: Alles, was nicht in die Küche gehört, kommt in einen Korb. Post, Kopfhörer, Kram. Nicht wegräumen, nur sammeln. Schritt drei: Spülmaschine. Alles, was rumsteht, kommt rein, auch wenn sie nicht voll ist. Schritt vier: Die Arbeitsfläche. Von hinten nach vorne wischen, Krümel direkt in die Hand. Schritt fünf: Spüle ausspülen und einmal trocken reiben. Eine trockene Spüle sieht doppelt so sauber aus. Schritt sechs: Handtuch tauschen, Lappen in die Wäsche. Und Schritt sieben, mein Lieblingsschritt: das Licht unter den Schränken anmachen und einfach gehen. Morgens kommst du in eine Küche, die dir nichts übel nimmt. Speicher dir das Video und mach morgen Abend mit. Folg mir für die Bad-Version.“
-
-🎬 **Bilder:** Timer in Nahaufnahme → Korb wird gefüllt → Spülmaschine einräumen (Zeitraffer) → Wischen in Bahnen → Spüle trockenreiben (Nahaufnahme, Glanz) → Lappen in Wäschekorb → Licht an, Kamera fährt langsam zurück.
-📝 **Text:** Schritte als Zahlen einblenden „1/7“, „2/7“ … (hält Leute bis zum Ende).
-
----
-
-### Skript 7 – 5 Gadgets unter 20 €
-**Hook #18** · Ziel: ca. 80 Sek. · 🛒 eines der Gadgets verlinken (das beste)
-
-🎙️ **Voiceover:**
-> „Fünf Haushalts-Gadgets unter 20 Euro, die sich wirklich lohnen. Und ich sag dir bei jedem ehrlich, ob es Hype ist oder nicht. Platz fünf: der Silikon-Spülbecken-Organizer. Klingt langweilig, aber der Schwamm trocknet endlich und stinkt nicht mehr. Solide, aber kein Muss. Platz vier: der Fugen-Stift. Schwarze Fugen werden in Sekunden wieder weiß. Hält etwa drei Monate, dann muss man nachmalen. Für den Preis trotzdem stark. Platz drei: die Entkalker-Tabs für den Duschkopf. Eine Nacht einwirken lassen, fertig. Spart dir einen neuen Duschkopf. Platz zwei: der Fusselrasierer. Alte Pullover sehen danach aus wie neu, und ich hab nicht gedacht, wie befriedigend das ist. Und Platz eins: die elektrische Putzbürste. Herd, Abfluss, Fugen, Sneaker. Die hat bei mir den normalen Schwamm fast komplett ersetzt. Wenn du nur ein Teil kaufst, dann das. Ich hab sie dir im Warenkorb verlinkt. Schreib mir in die Kommentare, welches Gadget ich als Nächstes testen soll.“
-
-🎬 **Bilder:** Pro Platz: Produkt auf neutralem Hintergrund (2 s) → kurze Anwendung (5–8 s) → Ergebnis.
-📝 **Text:** „#5“ … „#1“ groß in der Ecke, bei jedem ein Urteil „✅ / 🤷 / ❌“.
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Vertical 9:16, shower head spraying water unevenly in all directions, realistic bathroom“* | „Warum hat mir das niemand früher gesagt?“ | Schiefer Wasserstrahl? |
+| 3–9 s | 🤖 | *„Clean 3D animation: limescale crystals blocking tiny nozzle holes of a shower head, educational, light blue background“* | „Das ist Kalk. Er verstopft die kleinen Düsen von innen.“ | Illustration |
+| 9–16 s | 📦 | Beutel mit Wasser + Tab um echten Duschkopf binden | „Beutel, Wasser, eine Tablette, Gummiband. Über Nacht hängen lassen.“ | |
+| 16–24 s | 📦 | Beutel ab, gleichmäßiger Strahl | „Am nächsten Morgen: wieder ein normaler Strahl.“ | Echtes Ergebnis |
+| 24–30 s | 📦 | Packung | „Spart dir einen neuen Duschkopf. Link im Warenkorb.“ | 🛒 |
 
 ---
 
-### Skript 8 – Putzfehler, die Geld kosten
-**Hook #15** · Ziel: ca. 70 Sek.
+## Format 3: KI-Avatar-Review
 
-🎙️ **Voiceover:**
-> „Dieser Putzfehler kostet dich jedes Jahr Geld. Und das ist nur einer von vier. Fehler eins: Essig auf Naturstein. Granit oder Marmor wird davon matt und rau, und das kriegst du nie wieder weg. Nimm dafür einen pH-neutralen Reiniger. Fehler zwei: Zu viel Waschmittel. Mehr Waschmittel heißt nicht sauberer. Es bleibt in der Kleidung und in der Maschine, und das fängt irgendwann an zu riechen. Halte dich an die Dosierung auf der Packung, meistens reicht sogar weniger. Fehler drei: Den Wasserkocher nie entkalken. Kalk heißt längere Kochzeit, und längere Kochzeit heißt mehr Strom. Einmal im Monat Wasser mit Zitronensäure aufkochen, fertig. Fehler vier, und das ist der teuerste: das Flusensieb der Waschmaschine nie sauber machen. Wenn das verstopft, pumpt die Maschine schlechter ab und kann kaputtgehen. Einmal im Monat aufschrauben, und du sparst dir eine Reparatur. Welchen Fehler hast du gemacht? Sei ehrlich, ich hab alle vier gemacht.“
+### Skript 4 – Akku-Putzbürste (ca. 20–30 €)
+**Hook #28** · 32 Sek. · Avatar (HeyGen / Symphony) **nur am Anfang und Ende**
 
-🎬 **Bilder:** Zu jedem Fehler: falsche Handlung mit rotem ❌ → richtige Handlung mit grünem ✅. Flusensieb-Szene am Ende ruhig etwas „eklig“ zeigen (stärkster Moment).
-📝 **Text:** „Fehler 1/4“ usw.
+| Zeit | Quelle | Bild | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–4 s | 🤖 Avatar | KI-Avatar hält nichts in der Hand, Küche im Hintergrund | „Diese Putzbürste ist gerade überall auf TikTok. Lohnt sie sich?“ | Hype oder Müll? |
+| 4–10 s | 📦 | Bürste + Aufsätze auf dem Tisch | „Akku, vier Aufsätze, um die 25 Euro.“ | |
+| 10–16 s | 📦 | Test am Herd | „Am Herd: richtig gut.“ | ✅ Herd |
+| 16–21 s | 📦 | Test an Fugen | „An Fugen: gut, aber man muss zweimal drüber.“ | ⚠️ Fugen |
+| 21–26 s | 📦 | Test an Sneaker-Sohle | „Sneaker: wie neu.“ | ✅ Sneaker |
+| 26–32 s | 🤖 Avatar | Avatar | „Mein Fazit: Lohnt sich, wenn du keine Lust auf Schrubben hast. Link im Warenkorb.“ | 🛒 |
 
----
-
-### Skript 9 – Sonntagabend-Reset
-**Hook #25** · Ziel: ca. 90 Sek. · ruhiges, „gemütliches“ Video
-
-🎙️ **Voiceover** (ruhig, langsam sprechen):
-> „Sonntagabend-Reset. Komm mit. Die Woche war lang, und ich will morgen nicht in Chaos aufwachen. Also starten wir mit Musik und einem Getränk. Zuerst das Wohnzimmer: Decken falten, Kissen aufschütteln, alles, was rumliegt, zurück an seinen Platz. Das dauert nie so lange, wie man denkt. Dann das Bad: Spiegel, Waschbecken, Armaturen. Ich sprühe alles ein und lasse es kurz einwirken, während ich frische Handtücher hole. Danach einmal drüberwischen, und es glänzt. Jetzt die Küche: Kühlschrank kurz durchschauen, alles Abgelaufene raus, und eine Liste für den Wocheneinkauf schreiben. Wäsche: eine Maschine an, die läuft, während ich weitermache. Zum Schluss mein Schreibtisch, weil ich da morgen als Erstes sitze. Alles weg bis auf Laptop und eine Tasse. Und dann das Wichtigste: Kerze an, hinsetzen, nichts mehr machen. Neunzig Minuten Arbeit, und die ganze Woche fühlt sich leichter an. Was machst du am Sonntagabend? Sag's mir in den Kommentaren.“
-
-🎬 **Bilder:** Warmes Licht, Zeitraffer + Echtzeit gemischt, ASMR-Geräusche (Sprühen, Wischen, Falten). Letzte Szene: Kerze wird angezündet.
-📝 **Text:** Raum-Namen einblenden: „Wohnzimmer“, „Bad“, „Küche“, „Wäsche“, „Schreibtisch“.
+> Ehrlich: Der Avatar „testet“ nicht selbst. Formuliere das Fazit deshalb neutral („Das Ergebnis siehst du hier“). Behaupte nichts, was du nicht wirklich getestet hast.
 
 ---
 
-### Skript 10 – Virale Putz-Gadgets im Ehrlich-Test
-**Hook #19** · Ziel: ca. 85 Sek. · 🛒 Gewinner verlinken
+## Format 4: „3 Gründe“ (Text + KI-Stimme)
 
-🎙️ **Voiceover:**
-> „Ich teste die viralsten Putz-Gadgets, und zwar ehrlich. Kein Sponsoring, ich hab alles selbst bezahlt. Gadget eins: der Putzstein. Angeblich macht er alles sauber. Am Herd? Wirklich gut. Am Edelstahl? Hinterlässt Kratzer. Also: nur für bestimmte Flächen. Halbe Empfehlung. Gadget zwei: der Fenster-Abzieher mit Sprühfunktion. Hier war ich skeptisch, aber das Fenster ist in einer Minute streifenfrei. Keine Tücher, keine Streifen. Volle Empfehlung. Gadget drei: das Reinigungsknete-Gel für Auto und Tastatur. Sieht cool aus, und für die Lüftungsschlitze im Auto ist es super. Aber nach ein paar Mal ist es dreckig und muss weg. Eher Spielzeug. Gadget vier: der Schmutzradierer, also dieser weiße Schwamm. Den kennen viele, aber er ist immer noch der König. Wandflecken, Schuhsohlen, Kaffeeränder, weg. Nur nicht auf glänzenden Oberflächen benutzen, sonst werden sie matt. Mein Gewinner ist der Fenster-Abzieher. Den hab ich dir in den Warenkorb gepackt. Welches virale Gadget soll ich als Nächstes zerlegen?“
+### Skript 5 – Kühlschrank-Organizer-Set (ca. 15–25 €)
+**Hook #23** · 25 Sek.
 
-🎬 **Bilder:** Pro Gadget: Auspacken → Test → Nahaufnahme Ergebnis → Urteil-Stempel.
-📝 **Text:** „Hype? ✅ / ⚠️ / ❌“ bei jedem Gadget.
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Top-down 9:16, chaotic overfilled fridge, realistic, natural light, no logos“* | „3 Gründe, warum dein Kühlschrank immer chaotisch ist.“ | 3 GRÜNDE 👇 |
+| 3–8 s | 🤖 | *„Close-up of forgotten moldy vegetables at the back of a fridge, realistic, no logos“* | „Eins: Du siehst nicht, was hinten steht.“ | 1️⃣ |
+| 8–13 s | 🤖 | *„Fridge shelf with jars stacked unstably, realistic“* | „Zwei: Nichts hat einen festen Platz.“ | 2️⃣ |
+| 13–17 s | 🤖 | Gleiche Szene, Hand greift ins Chaos | „Drei: Alles kippt um, wenn du was rausnimmst.“ | 3️⃣ |
+| 17–22 s | 📦 | Echte Boxen werden eingeräumt, Zeitraffer | „Durchsichtige Boxen lösen alle drei Probleme.“ | |
+| 22–25 s | 📦 | Fertig sortierter Kühlschrank | „6er-Set im Warenkorb.“ | 🛒 |
 
 ---
 
-## Hinweise für alle Skripte
-- **Ehrlich bleiben:** Nur Produkte zeigen, die du selbst getestet hast. Fake-Ergebnisse (z. B. Vorher-Bild nachträglich dreckiger gemacht) sind gegen die TikTok-Regeln und zerstören Vertrauen.
-- **KI-Stimme?** Erlaubt, aber kennzeichnen („KI-generiert“-Label). Eigene Stimme wirkt meist echter und verkauft besser.
-- **Werbung kennzeichnen:** Bei Affiliate-Links muss klar sein, dass du Provision bekommst (TikTok-Shop-Videos werden automatisch markiert, zusätzlich „#werbung“ oder „Affiliate-Link“ in die Beschreibung).
+## Format 5: POV-Story
+
+### Skript 6 – Fenster-Sauger (ca. 30–50 €)
+**Hook #23-Variante** · 30 Sek.
+
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Vertical 9:16, sunlight hitting a streaky dirty window, dust visible, cozy apartment, no people“* | „POV: Die Sonne scheint, und du siehst jeden Streifen.“ | POV ☀️ |
+| 3–8 s | 🤖 | *„Hands holding a paper towel and spray bottle, wiping a window, streaks remain, no face“* | „Küchenrolle, Glasreiniger, und hinterher sieht's schlimmer aus.“ | |
+| 8–18 s | 📦 | Fenster-Sauger zieht Wasser ab, streifenfrei | „Mit dem Fenster-Sauger: einsprühen, abziehen, das Wasser wird eingesaugt.“ | Echtes Ergebnis |
+| 18–24 s | 📦 | Fenster im Gegenlicht, klar | „Keine Streifen, kein Tropfen auf der Fensterbank.“ | |
+| 24–30 s | 📦 | Gerät | „Ja, er kostet mehr als ein Tuch. Aber du sparst jedes Mal 20 Minuten. Link im Warenkorb.“ | 🛒 |
+
+---
+
+## Format 6: Geschenk-Idee (für Black Friday & Weihnachten!)
+
+> Heute ist der 19.11.2026 → **Black Friday am 27.11.** und die **Weihnachtszeit** sind die stärksten Verkaufswochen des Jahres. Sofort nutzen!
+
+### Skript 7 – Fusselrasierer (ca. 10–20 €)
+**Hook:** „Das perfekte Geschenk unter 20 € – für Leute, die alles haben.“ · 25 Sek.
+
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Vertical 9:16, cozy christmas living room, wrapped gift on a sofa, warm lights, no people“* | „Das perfekte Geschenk unter 20 Euro – für Leute, die alles haben.“ | 🎁 Geschenk-Idee |
+| 3–7 s | 🤖 | *„Close-up of an old knitted sweater covered in fuzz and pills, realistic“* | „Jeder hat diesen einen Lieblingspulli voller Fusseln.“ | |
+| 7–16 s | 📦 | Fusselrasierer fährt über echten Pulli, Fusseln verschwinden | „Einmal drüber … und er sieht wieder aus wie neu.“ | Echtes Ergebnis |
+| 16–21 s | 📦 | Auffangbehälter voller Fusseln | „Ehrlich, das ist absurd befriedigend.“ | 😮‍💨 |
+| 21–25 s | 📦 | Produkt neben Geschenkpapier | „Gerade im Angebot. Link im Warenkorb.“ (nur sagen, wenn es wirklich ein Angebot gibt!) | 🛒 Black Friday |
+
+---
+
+## Format 7: Fakten-Hook mit Animation
+
+### Skript 8 – Spülschwamm-Halter mit Abtropfschale (ca. 8–12 €)
+**Hook #16** · 24 Sek.
+
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Extreme macro shot of a wet kitchen sponge, slightly dirty, dramatic lighting“* | „Dein Schwamm ist einer der dreckigsten Orte in deiner Küche.“ | 🦠 |
+| 3–9 s | 🤖 | *„Simple 3D animation: tiny cartoon bacteria multiplying inside a wet sponge, educational, not scary“* | „Weil er nass in der Spüle liegt und nie trocknet.“ | Illustration |
+| 9–16 s | 📦 | Schwamm in den Halter, Wasser tropft ab | „Mit diesem Halter tropft er ab und trocknet schneller.“ | |
+| 16–20 s | 📦 | Ordentliche Spüle | „Und deine Spüle sieht direkt ordentlicher aus.“ | |
+| 20–24 s | 📦 | Produkt | „Trotzdem: Schwamm jede Woche wechseln. Link im Warenkorb.“ | 🛒 |
+
+> Achtung: Keine erfundenen Zahlen wie „200× dreckiger als die Toilette“ nennen, außer du hast eine echte Quelle.
+
+---
+
+## Format 8: Top-3-Liste
+
+### Skript 9 – 3 Haushalts-Gadgets unter 15 €
+**Hook #18-Variante** · 35 Sek. · Alle 3 Produkte verlinken (Warenkorb kann mehrere Produkte enthalten)
+
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Vertical 9:16, three small mystery boxes on a clean kitchen counter, soft light, no text“* | „3 Haushalts-Gadgets unter 15 Euro, die ich jedem empfehle.“ | TOP 3 unter 15 € |
+| 3–13 s | 📦 | Platz 3: Abfluss-Haarfänger in Aktion | „Platz drei: der Haarfänger. Nie wieder verstopfter Abfluss.“ | #3 |
+| 13–23 s | 📦 | Platz 2: Fugenstift malt Fuge weiß | „Platz zwei: der Fugenstift. Schwarze Fugen werden wieder weiß. Hält ein paar Monate.“ | #2 |
+| 23–32 s | 📦 | Platz 1: Entkalker am Duschkopf | „Platz eins: Entkalker-Tabs. Über Nacht, und der Duschkopf ist wie neu.“ | #1 🏆 |
+| 32–35 s | 🤖 | Gleiche Box-Szene, Boxen offen | „Alle drei im Warenkorb.“ | 🛒 |
+
+---
+
+## Format 9: Rechnung („lohnt sich das?“) – für teurere Produkte
+
+### Skript 10 – Dampfreiniger (ca. 50–80 €)
+**Hook #27** · 35 Sek. · Höherer Preis = mehr Provision pro Verkauf
+
+| Zeit | Quelle | Bild / KI-Prompt | 🎙️ Voiceover | 📝 Text |
+|---|---|---|---|---|
+| 0–3 s | 🤖 | *„Vertical 9:16, a pile of empty cleaning product bottles on a bathroom floor, realistic, no logos“* | „Das hier ist billiger als eine Putzhilfe. Ich rechne es dir vor.“ | 💶 Lohnt es sich? |
+| 3–10 s | 🤖 | Gleiche Szene, Flaschen werden gezählt (Text-Animation) | „Bad-Reiniger, Küchen-Reiniger, Fett-Löser, Glasreiniger. Das sind schnell 10 bis 15 Euro im Monat.“ | ca. 10–15 €/Monat |
+| 10–22 s | 📦 | Dampfreiniger an Fugen, Herd, Armatur | „Ein Dampfreiniger braucht nur Wasser. Fugen, Herd, Armaturen.“ | Nur Wasser 💧 |
+| 22–28 s | 📦 | Ergebnis Armatur glänzt | „Nach einem halben Jahr hat er sich ungefähr bezahlt gemacht.“ | |
+| 28–35 s | 📦 | Gerät | „Nachteil: Er braucht ein paar Minuten zum Aufheizen. Link im Warenkorb.“ | 🛒 |
+
+> Die Rechnung im Voiceover muss stimmen: Passe die Euro-Beträge an den echten Preis des Produkts an.
+
+---
+
+## So wiederverwendest du die Skripte
+Jedes Skript = **5 Videos**: gleiche echte Produkt-Clips 📦, aber neue KI-Szene 🤖, neuer Hook aus `02-hooks.md` und anderes Format (Problem→Lösung, Avatar, Top-3, Geschenk, Rechnung). So bekommst du aus 10 Produkten ca. **50 Videos** – das reicht für über 2 Wochen bei 3 Videos pro Tag.

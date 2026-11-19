@@ -1,5 +1,7 @@
 # 01 – Nischen-Analyse
 
+> **Update:** Das Business ist jetzt auf **TikTok Shop + KI-generierte, faceless Videos** ausgerichtet. Die Empfehlung (Haushalt & Putzen) bleibt, denn diese Nische passt sogar noch besser: Problem-Szenen lassen sich gut mit KI erzeugen, und günstige Produkte mit kurzen echten Clips verkaufen gut. „Kopf-Fakten“ (Vorschlag 2) fällt weg, weil es fast nur über Creator Rewards Geld bringt und reine KI-Videos dort oft nicht zugelassen werden.
+
 **Rahmen:** Nur zwei Einnahmequellen erlaubt:
 - **Creator Rewards Program (CRP):** TikTok zahlt pro 1.000 „qualifizierte“ Aufrufe. Bedingungen (Stand meines Wissens, bitte in der App prüfen): 18+, mind. 10.000 Follower, mind. 100.000 Aufrufe in den letzten 30 Tagen, Videos **länger als 1 Minute**, **originaler** Inhalt.
 - **TikTok Shop (Affiliate):** Du verlinkst Produkte anderer Händler im Video und bekommst eine **Provision** (meist 5–20 %) pro Verkauf. Kein eigenes Lager nötig. Ebenfalls 18+.

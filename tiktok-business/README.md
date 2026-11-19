@@ -1,15 +1,18 @@
-# Faceless TikTok Business – „Clean & Clever“
+# Faceless TikTok Shop Business – „Clean & Clever“
 
-Nische: **Haushalts-Hacks & Putz-Gadgets** · Einnahmen: **TikTok Shop (Affiliate)** + **Creator Rewards Program**
+Nische: **Haushalts-Hacks & Putz-Gadgets** · Einnahmen: **TikTok Shop (Affiliate-Provision)** · Produktion: **zu ca. 80–90 % KI**, ohne Gesicht
 
 | Datei | Inhalt |
 |---|---|
 | [01-nischen-analyse.md](01-nischen-analyse.md) | 3 Nischen im Vergleich + Empfehlung |
 | [02-hooks.md](02-hooks.md) | 30 Hooks in 6 Kategorien |
-| [03-video-skripte.md](03-video-skripte.md) | 10 fertige Skripte (5 Shop, 5 CRP > 1 Min.) |
-| [04-posting-plan.md](04-posting-plan.md) | 30-Tage-Plan, Tag für Tag |
+| [03-video-skripte.md](03-video-skripte.md) | 10 fertige KI-Shop-Skripte inkl. KI-Prompts (9 Formate) |
+| [04-posting-plan.md](04-posting-plan.md) | 30-Tage-Plan ab 20.11.2026 (Black Friday + Weihnachten) |
 | [05-geld-verdienen.md](05-geld-verdienen.md) | Geschäftsmodell + Rechnung bis 1.000 €/Tag |
+| [06-ki-workflow.md](06-ki-workflow.md) | KI-Tools, Ablauf, Prompt-Vorlagen, was KI darf und was nicht |
 
-**Reihenfolge zum Starten:** 01 lesen → Woche 0 in 04 abarbeiten → Skripte aus 03 filmen → jeden Sonntag Zahlen aus 05 prüfen.
+**Reihenfolge zum Starten:** 06 lesen → Vorbereitung in 04 → Skripte aus 03 produzieren → jeden Donnerstag Zahlen aus 05 prüfen.
 
-> Hinweis: Alle Zahlen zu Provisionen, RPM und Voraussetzungen sind Schätzungen bzw. mein Wissensstand und können sich ändern. Geld verdienen über TikTok ist erst ab 18 möglich.
+> **Wichtigste Regel:** KI für Stimme, Skript, Avatar und Problem-Szenen. Das **Ergebnis des Produkts** wird immer mit **echten** Clips gezeigt. Alles andere ist irreführende Werbung.
+>
+> Alle Zahlen zu Provisionen und Voraussetzungen sind Schätzungen bzw. mein Wissensstand. Shop-Provisionen gibt es erst ab 18.
