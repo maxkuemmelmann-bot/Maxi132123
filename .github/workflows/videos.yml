@@ -2,6 +2,7 @@
 # Ergebnis: Tab "Actions" -> letzter Lauf -> unten "Artifacts" herunterladen
 #   videos-skripte       = Brainrot-Geschichten (Ball-Animation)
 #   videos-skripte_obst  = Obst-Underdog-Rennen
+#   videos-ki_videos     = KI-Frucht- und Roblox-Storys aus deinen Clips
 name: Videos erstellen
 
 on:
@@ -10,6 +11,7 @@ on:
     paths:
       - "skripte/**"
       - "skripte_obst/**"
+      - "ki_videos/**"
       - "generator/**"
       - ".github/workflows/videos.yml"
 
@@ -20,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ordner: [skripte, skripte_obst]   # beide Ordner gleichzeitig
+        ordner: [skripte, skripte_obst, ki_videos]   # alle Ordner gleichzeitig
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,11 +44,18 @@ jobs:
         run: |
           # Knopfdruck, neuer Branch oder Programm geändert -> alles rendern.
           # Sonst nur die Skripte, die in diesem Push neu/geändert sind.
+          # Neuer Clip in ki_videos/NAME/ -> das Skript ki_videos/NAME.txt wird neu gerendert.
           if [ "$EREIGNIS" != "push" ] || ! git cat-file -e "$VORHER" 2>/dev/null \
              || git diff --name-only "$VORHER" HEAD | grep -qE '^(generator|\.github)/'; then
             ZIELE="$ORDNER"
           else
-            ZIELE=$(git diff --name-only --diff-filter=AM "$VORHER" HEAD -- "$ORDNER/*.txt" | tr '\n' ' ')
+            ZIELE=$(git diff --name-only --diff-filter=AM "$VORHER" HEAD -- "$ORDNER" | while read -r f; do
+              case "$f" in
+                *.txt) echo "$f" ;;
+                *.md) ;;
+                *) d=$(echo "$f" | cut -d/ -f1-2); [ -f "$d.txt" ] && echo "$d.txt" ;;
+              esac
+            done | sort -u | tr '\n' ' ')
           fi
           echo "Rendere: ${ZIELE:-nichts}"
           echo "ziele=$ZIELE" >> "$GITHUB_OUTPUT"

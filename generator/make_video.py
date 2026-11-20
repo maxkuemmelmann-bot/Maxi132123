@@ -29,6 +29,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from clips import ClipFilm
 from rennen import Rennen
 
 # ---------------- Einstellungen ----------------
@@ -75,14 +76,16 @@ def lese_skript(pfad):
     return kopf
 
 
-def marker_finden(text, marker):
-    """Sucht z. B. [WENDE] im Text. Gibt (Text ohne Marker, Wortnummer oder None) zurück."""
-    woerter = text.split()
-    if marker not in woerter:
-        return text, None
-    nummer = woerter.index(marker)
-    woerter.remove(marker)
-    return " ".join(woerter), nummer
+def entferne_marker(text):
+    """Holt Marker wie [WENDE], [ZIEL] oder [3] aus dem Text (sie werden nicht vorgelesen).
+    Gibt (Text ohne Marker, Liste (marker, wortnummer)) zurück."""
+    woerter, marker = [], []
+    for wort in text.split():
+        if re.fullmatch(r"\[[^\]\s]+\]", wort):
+            marker.append((wort[1:-1].upper(), len(woerter)))
+        else:
+            woerter.append(wort)
+    return " ".join(woerter), marker
 
 
 def in_saetze(text):
@@ -288,11 +291,11 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
     print(f"\n>> {skript.name}: {titel}")
     rng = random.Random(skript.name)          # gleiches Skript -> gleiche Animation
     stil = stil or kopf.get("stil", "").lower() or rng.choice(["wachsen", "chaos"])
-    # Marker für das Rennen: [WENDE] = Aufholjagd beginnt, [ZIEL] = Underdog gewinnt
-    text, wende_nr = marker_finden(kopf["text"], "[WENDE]")
-    text, ziel_nr = marker_finden(text, "[ZIEL]")
-    if ziel_nr is not None and wende_nr is not None and ziel_nr < wende_nr:
-        wende_nr -= 1                         # [ZIEL] stand davor -> Nummer verschiebt sich
+    # Marker: [WENDE]/[ZIEL] fürs Rennen, [1], [2], ... = Szenenwechsel im Clip-Modus
+    text, marker = entferne_marker(kopf["text"])
+    marker_nr = {name: nr for name, nr in reversed(marker)}   # erstes Vorkommen zählt
+    wende_nr, ziel_nr = marker_nr.get("WENDE"), marker_nr.get("ZIEL")
+    szenen_nr = [(int(name), nr) for name, nr in marker if name.isdigit()]
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
@@ -323,9 +326,16 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         stimme_audio = stimme_audio / (np.abs(stimme_audio).max() + 1e-6) * 0.9
         audio = np.zeros(n_samples, dtype=np.float32)
         audio[: len(stimme_audio)] = stimme_audio[:n_samples]
-        if stil == "rennen":
-            wende = woerter[wende_nr][1] if wende_nr is not None else sprech_dauer * 0.68
-            ziel_zeit = woerter[min(ziel_nr, len(woerter) - 1)][1] if ziel_nr is not None else sprech_dauer * 0.93
+        def wort_zeit(nr):   # wann wird Wort Nummer nr gesprochen?
+            return woerter[nr][1] if nr < len(woerter) else sprech_dauer
+
+        if stil == "clips":
+            szenen = [(n, wort_zeit(nr)) for n, nr in szenen_nr] or [(1, 0.0)]
+            szenen[0] = (szenen[0][0], 0.0)          # erste Szene startet sofort
+            film = ClipFilm(skript.with_suffix(""), szenen, dauer, lade_font(100))
+        elif stil == "rennen":
+            wende = wort_zeit(wende_nr) if wende_nr is not None else sprech_dauer * 0.68
+            ziel_zeit = wort_zeit(ziel_nr) if ziel_nr is not None else sprech_dauer * 0.93
             ziel_zeit = max(ziel_zeit, wende + 4)
             print(f"  Rennen: Aufholjagd ab {wende:.1f} s, Sieg bei {ziel_zeit:.1f} s")
             rennen = Rennen(kopf.get("teilnehmer"), kopf.get("bahn"), kopf.get("wettkampf"),
@@ -349,16 +359,21 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         font_unter = lade_font(100)
         font_titel = lade_font(56)
         font_klein, font_name = lade_font(46), lade_font(30)
-        text_y = 560 if stil == "rennen" else CY   # Untertitel-Höhe
+        text_y = {"rennen": 560, "clips": 1180}.get(stil, CY)   # Untertitel-Höhe
         gruppen = gruppiere(woerter, font_unter)
         g = 0                              # Index der aktuellen Untertitel-Gruppe
         spur = 10                          # Länge der Ball-Spur in Bildern
 
         for f in range(n_frames):
             zeit = f / FPS
-            bild = Image.new("RGB", (B, H), (10, 10, 20))
+            if stil == "clips":
+                bild = film.bild(zeit)
+            else:
+                bild = Image.new("RGB", (B, H), (10, 10, 20))
             d = ImageDraw.Draw(bild)
-            if stil == "rennen":
+            if stil == "clips":
+                pass                       # Bild kommt komplett aus dem Clip
+            elif stil == "rennen":
                 rennen.zeichne(d, f, zeit, font_klein, font_name)
             else:
                 # Kreis-Arena mit wechselnder Farbe
@@ -405,7 +420,7 @@ def main():
     p.add_argument("--out", default="videos", help="Ausgabe-Ordner (Standard: videos)")
     p.add_argument("--stimme", choices=["edge", "espeak", "auto"], default="edge",
                    help="edge = gute Stimme (Internet nötig), espeak = Roboter, auto = edge oder Roboter")
-    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen"],
+    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen", "clips"],
                    help="Hintergrund (sonst aus dem Skript oder zufällig)")
     args = p.parse_args()
 
