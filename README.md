@@ -10,7 +10,9 @@ Den kompletten Plan findest du in **[BUSINESSPLAN.md](BUSINESSPLAN.md)**.
 | `skripte_obst/` | 6 Obst-Wettkämpfe, bei denen der Underdog gewinnt (Rennen-Animation) |
 | `generator/make_video.py` | Macht aus einem Skript ein fertiges Video |
 | `generator/rennen.py` | Zeichnet das Obst-Rennen (Früchte mit Gesichtern, Krone, Konfetti) |
-| `ki_videos/` | KI-Frucht-Storys + Roblox-Storys: Skript + Ordner für deine Clips |
+| `skripte_block/` | Klötzchen-Storytime im „In dieser Stadt … außer mir. Huss. Huss. Huss.“-Stil, komplett automatisch |
+| `generator/block.py` | Zeichnet Klötzchen-Figuren, Städte, Autos, Tiere + HUSS!-Effekt |
+| `ki_videos/` | KI-Frucht-Storys: Skript + Ordner für deine Clips |
 | `generator/clips.py` | Schneidet deine Clips passend zur Erzählung zusammen |
 | `.github/workflows/videos.yml` | Rendert alle Videos automatisch auf GitHub (mit guter KI-Stimme) |
 | `BUSINESSPLAN.md` | Geld verdienen, Rechnung, Posting-Plan, Regeln |
@@ -18,25 +20,43 @@ Den kompletten Plan findest du in **[BUSINESSPLAN.md](BUSINESSPLAN.md)**.
 ## Videos bekommen (ohne eigenen PC-Aufwand)
 1. Auf GitHub ins Repo → Tab **Actions** → **Videos erstellen**
 2. Neuesten Lauf anklicken (oder **Run workflow** drücken)
-3. Unten bei **Artifacts** herunterladen (ZIP): `videos-skripte`, `videos-skripte_obst` oder `videos-ki_videos`
+3. Unten bei **Artifacts** herunterladen (ZIP): `videos-skripte`, `videos-skripte_obst`, `videos-skripte_block` oder `videos-ki_videos`
 4. Darin: `01_toaster.mp4` + `01_toaster_beschreibung.txt` (Text zum Reinkopieren bei TikTok)
 
 **Neues Video?** Neue Datei in `skripte/` oder `skripte_obst/` anlegen → speichern/committen → GitHub rendert automatisch nur die neuen Skripte.
 
-## KI-Frucht-Videos und Roblox-Storys (mit deinen Clips)
+## Klötzchen-Storytime: Vorlage (komplett automatisch)
+```
+TITEL: In dieser Stadt hat jeder ein Auto, außer mir (Teil 1)
+BESCHREIBUNG: Huss. Huss. Huss. #inthistown #huss #fyp
+STIL: block
+FIGUR: hell, rot, blau                 <- Haut, Shirt, Hose
+SZENE 1: strasse | traurig | autos     <- Ort | was du machst | was sonst da ist
+SZENE 2: strasse | rennt | autos
+---
+[1] In dieser Stadt hat jeder ein Auto. Außer mir. Huss. Huss. Huss.
+[2] Jeden Morgen renne ich zur Schule ...
+```
+- **Orte:** strasse, nacht, park, haus, autohaus, buehne
+- **Aktionen:** steht, rennt, traurig, jubelt, springt, traegt (Stein), faehrt (Sportwagen)
+- **Extras:** autos, stau, sportwagen, leute, leute_lachen, lacher, mama, hund, katze, pferd, stein, tisch, pokal, jury, regen, konfetti
+- **Farben:** gelb, rot, blau, gruen, schwarz, weiss, orange, lila, pink, braun, grau, tuerkis, Haut: hell, mittel, dunkel
+- Jedes gesprochene **„Huss“** bekommt automatisch einen Effekt: großes HUSS!, Zoom, Wumms-Sound, Atemwolke.
+
+## KI-Frucht-Videos (mit deinen Clips)
 Jede Story besteht aus einem Skript und einem Ordner mit gleichem Namen:
 ```
 ki_videos/frucht_01_kiwi.txt          <- Erzähltext mit Szenen [1], [2], ...
 ki_videos/frucht_01_kiwi/PROMPTS.md   <- fertige Prompts für jede Szene
 ki_videos/frucht_01_kiwi/01.mp4       <- deine Clips (legst du rein)
 ```
-1. **Clips machen:** KI-Frucht-Storys → `PROMPTS.md` in die KI-Video-App kopieren. Roblox-Storys → `AUFNAHMEPLAN.md` lesen und in Roblox aufnehmen.
+1. **Clips machen:** `PROMPTS.md` in die KI-Video-App kopieren.
 2. **Hochladen:** Auf GitHub in den Ordner gehen → **Add file → Upload files** → Clips reinziehen → **Commit changes**. (Max. 25 MB pro Datei.)
 3. **Warten:** GitHub baut das Video automatisch, ca. 5 Minuten. Download wie oben (`videos-ki_videos`).
 
 **Gut zu wissen:**
 - Fehlt ein Clip, zeigt das Video an der Stelle „SZENE X, Clip fehlt“ und **wie viele Sekunden** der Clip lang sein sollte. So kannst du das Timing vorher testen.
-- Zu kurze Clips werden etwas verlangsamt, zu lange gekürzt. Querformat (z. B. Roblox am PC) wird hochkant zugeschnitten, deshalb **Wichtiges in die Bildmitte**.
+- Zu kurze Clips werden etwas verlangsamt, zu lange gekürzt. Querformat wird hochkant zugeschnitten, deshalb **Wichtiges in die Bildmitte**.
 - Clip-Namen: `01.mp4`, `1.mp4` oder `01_kampf.mp4` funktionieren alle (auch `.mov`, `.webm`).
 
 ## Obst-Rennen: Vorlage

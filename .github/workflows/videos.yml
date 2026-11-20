@@ -2,7 +2,8 @@
 # Ergebnis: Tab "Actions" -> letzter Lauf -> unten "Artifacts" herunterladen
 #   videos-skripte       = Brainrot-Geschichten (Ball-Animation)
 #   videos-skripte_obst  = Obst-Underdog-Rennen
-#   videos-ki_videos     = KI-Frucht- und Roblox-Storys aus deinen Clips
+#   videos-skripte_block = Klötzchen-Storytime ("In dieser Stadt ... Huss. Huss. Huss.")
+#   videos-ki_videos     = KI-Frucht-Storys aus deinen Clips
 name: Videos erstellen
 
 on:
@@ -12,6 +13,7 @@ on:
       - "skripte/**"
       - "skripte_obst/**"
       - "ki_videos/**"
+      - "skripte_block/**"
       - "generator/**"
       - ".github/workflows/videos.yml"
 
@@ -22,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ordner: [skripte, skripte_obst, ki_videos]   # alle Ordner gleichzeitig
+        ordner: [skripte, skripte_obst, skripte_block, ki_videos]   # alle Ordner gleichzeitig
     steps:
       - uses: actions/checkout@v4
         with:

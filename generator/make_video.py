@@ -29,6 +29,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
+from block import BlockFilm
 from clips import ClipFilm
 from rennen import Rennen
 
@@ -329,10 +330,16 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         def wort_zeit(nr):   # wann wird Wort Nummer nr gesprochen?
             return woerter[nr][1] if nr < len(woerter) else sprech_dauer
 
+        szenen = [(n, wort_zeit(nr)) for n, nr in szenen_nr] or [(1, 0.0)]
+        szenen[0] = (szenen[0][0], 0.0)              # erste Szene startet sofort
         if stil == "clips":
-            szenen = [(n, wort_zeit(nr)) for n, nr in szenen_nr] or [(1, 0.0)]
-            szenen[0] = (szenen[0][0], 0.0)          # erste Szene startet sofort
             film = ClipFilm(skript.with_suffix(""), szenen, dauer, lade_font(100))
+        elif stil == "block":
+            huss = [w[1] for w in woerter if re.sub(r"\W", "", w[0]).lower().startswith("huss")]
+            print(f"  Block-Story: {len(szenen)} Szenen, {len(huss)}x Huss")
+            film = BlockFilm(kopf, szenen, dauer, huss, rng,
+                             {"klein": lade_font(54), "huss": lade_font(150)})
+            audio += film.sound(n_samples, SR)
         elif stil == "rennen":
             wende = wort_zeit(wende_nr) if wende_nr is not None else sprech_dauer * 0.68
             ziel_zeit = wort_zeit(ziel_nr) if ziel_nr is not None else sprech_dauer * 0.93
@@ -359,20 +366,20 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         font_unter = lade_font(100)
         font_titel = lade_font(56)
         font_klein, font_name = lade_font(46), lade_font(30)
-        text_y = {"rennen": 560, "clips": 1180}.get(stil, CY)   # Untertitel-Höhe
+        text_y = {"rennen": 560, "clips": 1180, "block": 560}.get(stil, CY)   # Untertitel-Höhe
         gruppen = gruppiere(woerter, font_unter)
         g = 0                              # Index der aktuellen Untertitel-Gruppe
         spur = 10                          # Länge der Ball-Spur in Bildern
 
         for f in range(n_frames):
             zeit = f / FPS
-            if stil == "clips":
+            if stil in ("clips", "block"):
                 bild = film.bild(zeit)
             else:
                 bild = Image.new("RGB", (B, H), (10, 10, 20))
             d = ImageDraw.Draw(bild)
-            if stil == "clips":
-                pass                       # Bild kommt komplett aus dem Clip
+            if stil in ("clips", "block"):
+                pass                       # Bild kommt komplett aus dem Film
             elif stil == "rennen":
                 rennen.zeichne(d, f, zeit, font_klein, font_name)
             else:
@@ -420,7 +427,7 @@ def main():
     p.add_argument("--out", default="videos", help="Ausgabe-Ordner (Standard: videos)")
     p.add_argument("--stimme", choices=["edge", "espeak", "auto"], default="edge",
                    help="edge = gute Stimme (Internet nötig), espeak = Roboter, auto = edge oder Roboter")
-    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen", "clips"],
+    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen", "clips", "block"],
                    help="Hintergrund (sonst aus dem Skript oder zufällig)")
     args = p.parse_args()
 
