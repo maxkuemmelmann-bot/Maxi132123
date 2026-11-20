@@ -360,7 +360,9 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
              "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{B}x{H}", "-r", str(FPS), "-i", "-",
              "-i", str(tmp / "audio.wav"),
              "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-pix_fmt", "yuv420p",
-             "-c:a", "aac", "-b:a", "160k", "-shortest", "-movflags", "+faststart", str(ziel)],
+             # Lautstärke auf TikTok-Niveau bringen (ca. -14 LUFS), ohne zu übersteuern
+             "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", "48000",
+             "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(ziel)],
             stdin=subprocess.PIPE)
 
         font_unter = lade_font(100)

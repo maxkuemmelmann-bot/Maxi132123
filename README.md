@@ -18,6 +18,10 @@ Den kompletten Plan findest du in **[BUSINESSPLAN.md](BUSINESSPLAN.md)**.
 | `BUSINESSPLAN.md` | Geld verdienen, Rechnung, Posting-Plan, Regeln |
 
 ## Videos bekommen (ohne eigenen PC-Aufwand)
+**Am einfachsten:** Auf GitHub in den Ordner **`fertige_videos/`** gehen, Video antippen, **Download** (↓) drücken.
+GitHub legt jedes fertige Video dort automatisch ab (ca. 5–15 Minuten nach einer Änderung).
+
+**Alternativ als ZIP:**
 1. Auf GitHub ins Repo → Tab **Actions** → **Videos erstellen**
 2. Neuesten Lauf anklicken (oder **Run workflow** drücken)
 3. Unten bei **Artifacts** herunterladen (ZIP): `videos-skripte`, `videos-skripte_obst`, `videos-skripte_block` oder `videos-ki_videos`
