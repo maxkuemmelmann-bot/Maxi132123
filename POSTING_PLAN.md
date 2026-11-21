@@ -78,7 +78,7 @@ Niemand hat an Ronny geglaubt 🍇💀 #brainrot #obst #underdog #storytime #fyp
 ```
 Ich bin auf TikTok Studio und habe gerade ein Video hochgeladen. Bitte:
 1. Lösche den Text im Beschreibungsfeld und füge genau diese Beschreibung ein:
-Mein Toaster ist jetzt mein Erziehungsberechtigter 💀 Teil 2 morgen #brainrot #storytime #geschichte #lustig #fyp #fürdich
+Mein Toaster ist jetzt mein Erziehungsberechtigter 💀 #brainrot #storytime #geschichte #lustig #fyp #fürdich
 2. Schalte unter "Weitere Optionen" (bzw. "Mehr Optionen") "KI-generierter Inhalt" an.
 3. Wähle "Planen" statt "Jetzt posten" und stelle Montag, 23.11.2026 um 16:00 Uhr ein.
 4. Zeig mir alles, bevor du auf "Planen" klickst, und warte auf mein OK.
