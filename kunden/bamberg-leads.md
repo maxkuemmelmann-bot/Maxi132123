@@ -1,27 +1,37 @@
-# Leads Bamberg – Handwerker mit veralteter Website
+# Leads Bamberg – Websites wie aus den 90ern
 
-Stand: 22.11.2026 · 25 Betriebe geprüft, 3 gute Kandidaten
+Stand: 22.11.2026 · 325 Firmen-Websites gescannt (Quelle: sellwerk.de), 255 erreichbar
 
-## Top-Kandidaten
+## 🥇 Echte 90er/frühe 2000er-Seiten
 
-| # | Firma | Ort | Website | Problem |
-|---|-------|-----|---------|---------|
-| 1 | Schreinerei Hofmann | Haßbergstr. 4, 96151 Breitbrunn | schreinerei-innenausbau-hofmann.de | Gebaut mit Adobe GoLive 6 (ca. 2002), Frames-Technik, nicht fürs Handy, für Google kaum lesbar |
-| 2 | Schreinerei Benkert GmbH | Kirschäckerstr. 13, 96052 Bamberg | schreinerei-benkert.de | HTTPS-Zertifikat passt nicht zur Domain → Browser zeigt Sicherheitswarnung |
-| 3 | Malerbetrieb Volk GmbH | Bamberg | malerbetrieb-volk.de | Website beim Test nicht erreichbar (selbst im Browser nachprüfen!) |
+| # | Firma | Ort | Website | Warum alt |
+|---|-------|-----|---------|-----------|
+| 1 | Möbel Manufaktur Münch (Schreinerei) | 91301 Forchheim | moebelmanufaktur-muench.de | Tabellen-Layout, Flash, nicht fürs Handy, Jahr 2004 |
+| 2 | Dachdeckerei Roland Schmidt | Grundfeld, 96231 Bad Staffelstein | dachdeckerrs.de | Frames („UntitledFrame-1"), nicht fürs Handy |
+| 3 | Schreinerei Hofmann | 96151 Breitbrunn | schreinerei-innenausbau-hofmann.de | Frames, Adobe GoLive 6 (ca. 2002), nicht fürs Handy |
+| 4 | Antikhof Reichert | 96231 Bad Staffelstein | antikhof-reichert.de | Seitentitel „Unbenanntes Dokument", fast leer, Copyright 2000 |
+| 5 | Balance Naturfriseur | 91315 Höchstadt | naturfriseur-hoechstadt.de | Tabellen-Layout, nicht fürs Handy |
 
-## Außerhalb des Gebiets (nur zur Info)
+## 🔧 Kaputt oder keine Website
 
-- Schreinerei Bemsel (Kipfenberg, Altmühltal): Website von 2008, nicht fürs Handy
+| Firma | Ort | Website | Problem |
+|-------|-----|---------|---------|
+| Berchtold Maler & Gerüstbau GmbH | 97475 Zeil | berchtold-zeil.de | Startseite zeigt nur PHP-Fehlermeldungen |
+| Friseur am Gabelmann | 96047 Bamberg | friseur-am-gabelmann.de | Nur Platzhalter „Hier entsteht eine neue Homepage" |
+| Schreinerei Benkert GmbH | 96052 Bamberg | schreinerei-benkert.de | Falsches HTTPS-Zertifikat → Browser-Warnung |
 
-## Modern (nicht anschreiben)
+## 🟡 Alt, aber nicht ganz so schlimm (nicht fürs Handy)
 
-Bergmann, Brumma, Förtsch, Nein, Elbel, Keidel, Rieger & Merklein, Stöcklein Haustechnik,
-Fröschlein, Kellermann, Malerwerkstätte Stöcklein, Böhnlein, Fischer, Dümmlein, Bodner,
-Leicht, Baer, Behr, Raithel, Oetter, Dachwald
+| Firma | Ort | Website | Problem |
+|-------|-----|---------|---------|
+| Motorrad Scherer | 96050 Bamberg | motorrad-scherer.de | IONOS-Baukasten, nicht fürs Handy |
+| Café am Michaelsberg | 96049 Bamberg | restaurant-michaelsberg.de | CMS von ca. 2014, nicht fürs Handy |
+| Elektro Frey | 96129 Strullendorf | elektro-service-frey.de | Seitentitel „Meine Homepage - Home", nicht fürs Handy |
+| Malerbetrieb Jäger | 96123 Litzendorf | malerbetriebjaeger.de | nicht fürs Handy |
+| Brauerei Greif | 91301 Forchheim | brauerei-greif.de | nicht fürs Handy |
 
-## Nächste Schritte
+## Hinweise
 
-- [ ] Kandidaten selbst im Browser und auf dem Handy anschauen
-- [ ] Brief bzw. Gesprächsleitfaden schreiben
-- [ ] Demo-Entwurf für Kandidat 1 bauen
+- Automatisch geprüft, nur die Startseite. **Vor dem Kontakt selbst am Handy und PC anschauen!**
+- 70 Websites waren beim Scan nicht erreichbar (evtl. offline). Die Liste aller Firmen steht in `bamberg-firmen-websites.csv`.
+- Kontakt nur per Brief, persönlich oder Anruf, **keine Werbe-E-Mails** (§ 7 UWG).
