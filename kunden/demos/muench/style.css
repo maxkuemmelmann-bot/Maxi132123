@@ -1,0 +1,167 @@
+/* Farben: warme Holztöne */
+:root {
+  --bg: #faf7f2;
+  --bg-alt: #f1ebe1;
+  --text: #2b2118;
+  --muted: #6b5d50;
+  --wood: #8a5a2f;
+  --wood-dark: #5c3a1c;
+  --line: #e2d8ca;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6; font-size: 17px;
+}
+h1, h2, h3 { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-weight: 600; line-height: 1.2; }
+a { color: var(--wood-dark); }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* Hinweis-Leiste: zeigt, dass es ein Entwurf ist */
+.demo-note { background: #2b2118; color: #f1ebe1; font-size: 13px; text-align: center; padding: 6px 16px; }
+
+/* Kopfzeile */
+header { position: sticky; top: 0; z-index: 10; background: rgba(250,247,242,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+.logo { text-decoration: none; color: var(--text); line-height: 1.1; }
+.logo strong { font-family: Georgia, serif; font-size: 20px; display: block; }
+.logo span { font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+.menu { display: flex; gap: 24px; list-style: none; }
+.menu a { text-decoration: none; color: var(--text); font-size: 15px; }
+.menu a:hover { color: var(--wood); }
+.btn { display: inline-block; background: var(--wood); color: var(--white); text-decoration: none; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 16px; border: 0; cursor: pointer; transition: background .2s; }
+.btn:hover { background: var(--wood-dark); }
+.btn-ghost { background: transparent; color: var(--wood-dark); border: 2px solid var(--wood); }
+.btn-ghost:hover { background: var(--wood); color: var(--white); }
+.nav .btn { padding: 9px 16px; font-size: 15px; white-space: nowrap; }
+
+/* Platzhalter für echte Fotos aus der Werkstatt */
+.photo {
+  border-radius: 12px; min-height: 220px; display: flex; align-items: flex-end; padding: 14px;
+  color: rgba(255,255,255,.92); font-size: 13px;
+  background:
+    repeating-linear-gradient(100deg, rgba(255,255,255,.05) 0 6px, rgba(0,0,0,.05) 6px 14px),
+    linear-gradient(135deg, #a8743f, #6e4421);
+}
+.photo.light { background: repeating-linear-gradient(95deg, rgba(255,255,255,.08) 0 5px, rgba(0,0,0,.04) 5px 12px), linear-gradient(135deg, #d2a978, #a3794b); }
+.photo.dark  { background: repeating-linear-gradient(98deg, rgba(255,255,255,.04) 0 7px, rgba(0,0,0,.08) 7px 15px), linear-gradient(135deg, #6b4423, #3d2512); }
+
+/* Startbereich */
+.hero { padding: 72px 0 56px; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.eyebrow { color: var(--wood); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+.hero h1 { font-size: clamp(34px, 5vw, 54px); margin-bottom: 18px; }
+.hero p.lead { font-size: 19px; color: var(--muted); margin-bottom: 28px; max-width: 34em; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero .photo { min-height: 420px; }
+
+/* Fakten-Leiste */
+.facts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+.facts ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+.facts li { padding: 22px 16px; text-align: center; font-size: 15px; color: var(--muted); }
+.facts li + li { border-left: 1px solid var(--line); }
+.facts b { display: block; font-family: Georgia, serif; font-size: 22px; color: var(--text); }
+
+section { padding: 80px 0; }
+.section-head { max-width: 640px; margin-bottom: 40px; }
+.section-head h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 12px; }
+.section-head p { color: var(--muted); }
+.alt { background: var(--bg-alt); }
+
+/* Leistungen */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.card .photo { border-radius: 0; min-height: 170px; }
+.card div.txt { padding: 20px; }
+.card h3 { font-size: 21px; margin-bottom: 6px; }
+.card p { color: var(--muted); font-size: 15.5px; }
+
+/* Zweispaltige Abschnitte */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.split .photo { min-height: 380px; }
+.checks { list-style: none; margin: 20px 0 28px; }
+.checks li { padding-left: 30px; position: relative; margin-bottom: 10px; }
+.checks li::before { content: "✓"; position: absolute; left: 0; color: var(--wood); font-weight: 700; }
+
+/* Ablauf */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
+.step { border-top: 3px solid var(--wood); padding-top: 18px; }
+.step::before { counter-increment: step; content: "0" counter(step); font-family: Georgia, serif; font-size: 30px; color: var(--wood); display: block; margin-bottom: 6px; }
+.step h3 { font-size: 19px; margin-bottom: 6px; }
+.step p { color: var(--muted); font-size: 15.5px; }
+
+/* Kekse */
+.cookie { background: var(--white); border: 1px dashed var(--wood); border-radius: 14px; padding: 36px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+.cookie .icon { font-size: 56px; }
+.cookie h3 { font-size: 24px; margin-bottom: 8px; }
+.cookie p { color: var(--muted); }
+
+/* Kontakt */
+.contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; }
+.contact dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; margin: 20px 0; }
+.contact dt { color: var(--muted); }
+.hours td { padding: 3px 18px 3px 0; }
+form { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 14px; }
+label { font-size: 14px; font-weight: 600; display: grid; gap: 6px; }
+input, select, textarea { font: inherit; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); }
+textarea { min-height: 120px; resize: vertical; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.small { font-size: 13px; color: var(--muted); }
+
+footer { background: #2b2118; color: #cdbfae; padding: 40px 0; font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer a { color: #f1ebe1; }
+
+/* Mobile Telefon-Leiste */
+.callbar { display: none; }
+
+/* Handy und Tablet */
+@media (max-width: 900px) {
+  .menu { display: none; }
+  .hero { padding: 40px 0; }
+  .hero-grid, .split, .contact { grid-template-columns: 1fr; gap: 28px; }
+  .hero .photo { min-height: 200px; }
+  .split .photo { min-height: 240px; }
+  .cards { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .facts ul { grid-template-columns: 1fr 1fr; }
+  .facts li:nth-child(3) { border-left: 0; }
+  .facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
+  section { padding: 56px 0; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; padding-bottom: 64px; }
+  .wrap { padding: 0 16px; }
+  .demo-note { font-size: 11px; }
+  .nav .btn { display: none; }
+  .cards, .steps, .row { grid-template-columns: 1fr; }
+  .cookie { grid-template-columns: 1fr; padding: 24px; text-align: center; }
+  .callbar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 20; }
+  .callbar a { flex: 1; text-align: center; padding: 16px; font-weight: 600; text-decoration: none; color: #fff; background: var(--wood); }
+  .callbar a + a { background: var(--wood-dark); }
+}
+
+/* Handy-Menü (Knopf mit drei Strichen) */
+.menu-btn { display: none; background: none; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; font: inherit; font-size: 15px; color: var(--text); cursor: pointer; }
+@media (max-width: 900px) {
+  .menu-btn { display: block; }
+  .menu.open { display: flex; flex-direction: column; gap: 0; position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px 16px 16px; }
+  .menu.open a { display: block; padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 17px; }
+  header { position: sticky; }
+  header .nav { position: relative; }
+}
+
+/* Unterseiten (Impressum, Datenschutz) */
+.legal { max-width: 760px; padding: 56px 20px 80px; margin: 0 auto; }
+.legal h1 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 24px; }
+.legal h2 { font-size: 22px; margin: 32px 0 8px; }
+.legal p, .legal li { color: var(--muted); margin-bottom: 10px; }
+.legal ul { padding-left: 22px; }
+.todo { background: #fff4d6; color: #6b4a00; padding: 1px 6px; border-radius: 4px; font-size: .92em; }
+
+/* Keks-Rezept zum Aufklappen */
+details.recipe { margin-top: 12px; }
+details.recipe summary { cursor: pointer; color: var(--wood-dark); font-weight: 600; }
+details.recipe .photo { min-height: 260px; margin-top: 12px; }
