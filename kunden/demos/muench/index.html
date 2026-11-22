@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Möbel Manufaktur Münch – Schreinerei in Forchheim</title>
+<meta name="description" content="Meisterbetrieb seit 1984: Möbel nach Maß, Küchen, KüchenTuning, Badmöbel und Ladeneinrichtungen aus unserer Werkstatt in Forchheim.">
+<!-- ENTWURF: Demo-Website, keine offizielle Seite der Firma -->
+<style>
+  /* Farben: warme Holztöne */
+  :root {
+    --bg: #faf7f2;
+    --bg-alt: #f1ebe1;
+    --text: #2b2118;
+    --muted: #6b5d50;
+    --wood: #8a5a2f;
+    --wood-dark: #5c3a1c;
+    --line: #e2d8ca;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6; font-size: 17px;
+  }
+  h1, h2, h3 { font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-weight: 600; line-height: 1.2; }
+  a { color: var(--wood-dark); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+  /* Hinweis-Leiste: zeigt, dass es ein Entwurf ist */
+  .demo-note { background: #2b2118; color: #f1ebe1; font-size: 13px; text-align: center; padding: 6px 16px; }
+
+  /* Kopfzeile */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(250,247,242,.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+  .logo { text-decoration: none; color: var(--text); line-height: 1.1; }
+  .logo strong { font-family: Georgia, serif; font-size: 20px; display: block; }
+  .logo span { font-size: 12px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .menu { display: flex; gap: 24px; list-style: none; }
+  .menu a { text-decoration: none; color: var(--text); font-size: 15px; }
+  .menu a:hover { color: var(--wood); }
+  .btn { display: inline-block; background: var(--wood); color: var(--white); text-decoration: none; padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 16px; border: 0; cursor: pointer; transition: background .2s; }
+  .btn:hover { background: var(--wood-dark); }
+  .btn-ghost { background: transparent; color: var(--wood-dark); border: 2px solid var(--wood); }
+  .btn-ghost:hover { background: var(--wood); color: var(--white); }
+  .nav .btn { padding: 9px 16px; font-size: 15px; white-space: nowrap; }
+
+  /* Platzhalter für echte Fotos aus der Werkstatt */
+  .photo {
+    border-radius: 12px; min-height: 220px; display: flex; align-items: flex-end; padding: 14px;
+    color: rgba(255,255,255,.92); font-size: 13px;
+    background:
+      repeating-linear-gradient(100deg, rgba(255,255,255,.05) 0 6px, rgba(0,0,0,.05) 6px 14px),
+      linear-gradient(135deg, #a8743f, #6e4421);
+  }
+  .photo.light { background: repeating-linear-gradient(95deg, rgba(255,255,255,.08) 0 5px, rgba(0,0,0,.04) 5px 12px), linear-gradient(135deg, #d2a978, #a3794b); }
+  .photo.dark  { background: repeating-linear-gradient(98deg, rgba(255,255,255,.04) 0 7px, rgba(0,0,0,.08) 7px 15px), linear-gradient(135deg, #6b4423, #3d2512); }
+
+  /* Startbereich */
+  .hero { padding: 72px 0 56px; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+  .eyebrow { color: var(--wood); font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(34px, 5vw, 54px); margin-bottom: 18px; }
+  .hero p.lead { font-size: 19px; color: var(--muted); margin-bottom: 28px; max-width: 34em; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero .photo { min-height: 420px; }
+
+  /* Fakten-Leiste */
+  .facts { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--white); }
+  .facts ul { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .facts li { padding: 22px 16px; text-align: center; font-size: 15px; color: var(--muted); }
+  .facts li + li { border-left: 1px solid var(--line); }
+  .facts b { display: block; font-family: Georgia, serif; font-size: 22px; color: var(--text); }
+
+  section { padding: 80px 0; }
+  .section-head { max-width: 640px; margin-bottom: 40px; }
+  .section-head h2 { font-size: clamp(28px, 3.5vw, 38px); margin-bottom: 12px; }
+  .section-head p { color: var(--muted); }
+  .alt { background: var(--bg-alt); }
+
+  /* Leistungen */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .card .photo { border-radius: 0; min-height: 170px; }
+  .card div.txt { padding: 20px; }
+  .card h3 { font-size: 21px; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 15.5px; }
+
+  /* Zweispaltige Abschnitte */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .split .photo { min-height: 380px; }
+  .checks { list-style: none; margin: 20px 0 28px; }
+  .checks li { padding-left: 30px; position: relative; margin-bottom: 10px; }
+  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--wood); font-weight: 700; }
+
+  /* Ablauf */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
+  .step { border-top: 3px solid var(--wood); padding-top: 18px; }
+  .step::before { counter-increment: step; content: "0" counter(step); font-family: Georgia, serif; font-size: 30px; color: var(--wood); display: block; margin-bottom: 6px; }
+  .step h3 { font-size: 19px; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: 15.5px; }
+
+  /* Kekse */
+  .cookie { background: var(--white); border: 1px dashed var(--wood); border-radius: 14px; padding: 36px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
+  .cookie .icon { font-size: 56px; }
+  .cookie h3 { font-size: 24px; margin-bottom: 8px; }
+  .cookie p { color: var(--muted); }
+
+  /* Kontakt */
+  .contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; }
+  .contact dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; margin: 20px 0; }
+  .contact dt { color: var(--muted); }
+  .hours td { padding: 3px 18px 3px 0; }
+  form { background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 28px; display: grid; gap: 14px; }
+  label { font-size: 14px; font-weight: 600; display: grid; gap: 6px; }
+  input, select, textarea { font: inherit; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--text); }
+  textarea { min-height: 120px; resize: vertical; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .small { font-size: 13px; color: var(--muted); }
+
+  footer { background: #2b2118; color: #cdbfae; padding: 40px 0; font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+  footer a { color: #f1ebe1; }
+
+  /* Mobile Telefon-Leiste */
+  .callbar { display: none; }
+
+  /* Handy und Tablet */
+  @media (max-width: 900px) {
+    .menu { display: none; }
+    .hero { padding: 40px 0; }
+    .hero-grid, .split, .contact { grid-template-columns: 1fr; gap: 28px; }
+    .hero .photo { min-height: 200px; }
+    .split .photo { min-height: 240px; }
+    .cards { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .facts ul { grid-template-columns: 1fr 1fr; }
+    .facts li:nth-child(3) { border-left: 0; }
+    .facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
+    section { padding: 56px 0; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding-bottom: 64px; }
+    .wrap { padding: 0 16px; }
+    .demo-note { font-size: 11px; }
+    .nav .btn { display: none; }
+    .cards, .steps, .row { grid-template-columns: 1fr; }
+    .cookie { grid-template-columns: 1fr; padding: 24px; text-align: center; }
+    .callbar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 20; }
+    .callbar a { flex: 1; text-align: center; padding: 16px; font-weight: 600; text-decoration: none; color: #fff; background: var(--wood); }
+    .callbar a + a { background: var(--wood-dark); }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-note">Entwurf · Unverbindlicher Vorschlag für eine neue Website · Keine offizielle Seite der Klaus Münch Schreinerei GmbH</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><strong>Möbel Manufaktur Münch</strong><span>Schreinerei · Forchheim</span></a>
+    <ul class="menu">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#kuechentuning">KüchenTuning</a></li>
+      <li><a href="#naturbetten">Naturbetten</a></li>
+      <li><a href="#werkstatt">Werkstatt</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn" href="tel:+499191640805">09191 64 08 05</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Startbereich -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Meisterbetrieb seit 1984</p>
+        <h1>Möbel nach Maß, gebaut in Forchheim.</h1>
+        <p class="lead">Küchen, Einbauschränke, Badmöbel und Ladeneinrichtungen: Wir planen mit Ihnen, bauen in unserer Werkstatt in der Hainbrunnenstraße und bauen bei Ihnen ein.</p>
+        <div class="actions">
+          <a class="btn" href="#kontakt">Beratungstermin vereinbaren</a>
+          <a class="btn btn-ghost" href="#leistungen">Unsere Arbeiten ansehen</a>
+        </div>
+      </div>
+      <div class="photo">Foto: eine Küche oder ein Möbelstück aus der Werkstatt</div>
+    </div>
+  </section>
+
+  <!-- Fakten -->
+  <div class="facts">
+    <ul class="wrap">
+      <li><b>Seit 1984</b>Meisterbetrieb</li>
+      <li><b>Eigene Werkstatt</b>in Forchheim</li>
+      <li><b>Ausstellung</b>zum Anfassen</li>
+      <li><b>SHIVA</b>Fachhändler Naturbetten</li>
+    </ul>
+  </div>
+
+  <!-- Leistungen -->
+  <section id="leistungen">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Was wir für Sie bauen</h2>
+        <p>Vom einzelnen Möbelstück bis zum kompletten Einrichtungskonzept. Für Ihr Zuhause und für Räume, in denen Sie arbeiten, präsentieren und verkaufen.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="photo">Foto: Einbauküche</div><div class="txt"><h3>Küchen</h3><p>Einbauküchen nach Maß, geplant für Ihren Grundriss und Ihre Art zu kochen.</p></div></article>
+        <article class="card"><div class="photo light">Foto: Schrank unter Dachschräge</div><div class="txt"><h3>Schränke &amp; Schiebetüren</h3><p>Einbauschränke für Dachschrägen und Nischen, Garderoben und Schiebetürschränke.</p></div></article>
+        <article class="card"><div class="photo dark">Foto: Badmöbel</div><div class="txt"><h3>Badmöbel</h3><p>Waschtische und Schränke fürs Bad, auch mit Oberflächen aus Corian.</p></div></article>
+        <article class="card"><div class="photo dark">Foto: Ladeneinrichtung</div><div class="txt"><h3>Laden- &amp; Gaststättenbau</h3><p>Theken, Regale und Einrichtungen für Geschäfte, Gaststätten und Hotels.</p></div></article>
+        <article class="card"><div class="photo">Foto: Büro / Bürocontainer</div><div class="txt"><h3>Büroeinrichtung</h3><p>Schreibtische und Container, zum Beispiel aus Kirschbaum, geölt und gewachst, mit Edelstahlkanten.</p></div></article>
+        <article class="card"><div class="photo light">Foto: Einzelmöbel</div><div class="txt"><h3>Einzelmöbel &amp; Innenausbau</h3><p>Esstische, Betten, Wohnmöbel, Geländer und Innenausbau. Wenn etwas fehlt: fragen Sie nach.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KüchenTuning -->
+  <section id="kuechentuning" class="alt">
+    <div class="wrap split">
+      <div class="photo">Foto: Küche vorher / nachher</div>
+      <div>
+        <p class="eyebrow">KüchenTuning</p>
+        <h2>Behalten Sie Ihre alte Küche. Wir bauen sie um.</h2>
+        <p style="margin-top:14px;color:var(--muted)">Lust auf neue Farbe? Umzug mit der Einbauküche? Mehr Komfort im Innenleben? Der Korpus bleibt, alles Sichtbare wird neu.</p>
+        <ul class="checks">
+          <li>Neue Türen und Schubkastenblenden, von Kunststoff bis Massivholz</li>
+          <li>Jede Oberfläche, von geölt bis hochglanzlackiert</li>
+          <li>Neue Arbeitsplatte und moderne Beschläge</li>
+        </ul>
+        <a class="btn" href="#kontakt">KüchenTuning anfragen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Von der Skizze zum Einbau</h2>
+        <p>Sie können uns den Entwurf überlassen oder mit einer fertigen Idee kommen.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Gespräch</h3><p>Sie erzählen uns, was Sie brauchen. Gerne bei Ihnen vor Ort oder in unserer Ausstellung.</p></div>
+        <div class="step"><h3>Entwurf &amp; Angebot</h3><p>Wir zeichnen, schlagen Materialien vor und schicken Ihnen ein genaues Angebot.</p></div>
+        <div class="step"><h3>Werkstatt</h3><p>Ihr Möbel entsteht in Forchheim, mit Handarbeit und moderner Produktionstechnik.</p></div>
+        <div class="step"><h3>Einbau</h3><p>Wir liefern und bauen selbst ein. Danach sind wir weiter für Sie da.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Naturbetten -->
+  <section id="naturbetten" class="alt">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Naturbettwaren</p>
+        <h2>Betten und Möbel von SHIVA</h2>
+        <p style="margin-top:14px;color:var(--muted)">Als SHIVA-Fachhändler beraten wir Sie zu Betten, Matratzen und Bettwaren. Die Möbel gibt es in zwei Hölzern, beide aus nachhaltiger Forstwirtschaft:</p>
+        <ul class="checks">
+          <li>Europäische Rotbuche, wahlweise gebeizt</li>
+          <li>Amerikanische Kirsche (Black Cherry)</li>
+          <li>Latexmatratzen, Bettwaren und Möbel fürs Kinderzimmer</li>
+        </ul>
+        <a class="btn" href="#kontakt">Beratung zu Naturbetten</a>
+      </div>
+      <div class="photo light">Foto: SHIVA-Bett in der Ausstellung</div>
+    </div>
+  </section>
+
+  <!-- Werkstatt / Über uns -->
+  <section id="werkstatt">
+    <div class="wrap split">
+      <div class="photo dark">Foto: Klaus Münch und Team in der Werkstatt</div>
+      <div>
+        <p class="eyebrow">Hirn + Holz</p>
+        <h2>Eine Manufaktur im traditionellen Sinn</h2>
+        <p style="margin-top:14px;color:var(--muted)">Unsere Leidenschaft gehört dem Holz. Seit 1984 verbinden wir traditionelles Handwerkswissen mit moderner Produktionstechnik. Wir nehmen uns Zeit für Details: das passende Material, eine saubere Oberfläche und schlichte, gute Beschläge.</p>
+        <p style="margin-top:14px;color:var(--muted)">Daraus entstehen funktionale Möbel mit klarer Ästhetik, zu fairen Preisen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kekse: die alte Geschichte bleibt erhalten -->
+  <section class="alt" style="padding-top:56px;padding-bottom:56px">
+    <div class="wrap">
+      <div class="cookie">
+        <div class="icon">🍪</div>
+        <div>
+          <h3>Möbel und Kekse nach Maß</h3>
+          <p>Unsere Stammkunden kennen sie aus der Weihnachtspost 1998: die Manufaktur-Kekse. Glaubhafte Zeugen versichern, dass 1999 noch einige Exemplare im Verzehr waren. Solide Handarbeit, wie alles aus unserem Hause. Das Originalrezept gibt es hier. <a href="#">[Rezept ansehen]</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt -->
+  <section id="kontakt">
+    <div class="wrap contact">
+      <div>
+        <div class="section-head" style="margin-bottom:0">
+          <h2>Termin vereinbaren</h2>
+          <p>Rufen Sie an oder schreiben Sie uns kurz, worum es geht. Wir melden uns mit einem Terminvorschlag.</p>
+        </div>
+        <dl>
+          <dt>Telefon</dt><dd><a href="tel:+499191640805">09191 64 08 05</a></dd>
+          <dt>E-Mail</dt><dd><a href="mailto:info@moebelmanufaktur-muench.de">info@moebelmanufaktur-muench.de</a></dd>
+          <dt>Adresse</dt><dd>Hainbrunnenstraße 4<br>91301 Forchheim</dd>
+        </dl>
+        <table class="hours">
+          <tr><td>Montag – Freitag</td><td>08:00 – 17:00 Uhr</td></tr>
+          <tr><td>Samstag, Sonntag</td><td>geschlossen</td></tr>
+        </table>
+      </div>
+      <form onsubmit="event.preventDefault(); alert('Dies ist ein Entwurf. Das Formular wird erst auf der echten Website aktiviert.');">
+        <div class="row">
+          <label>Name<input name="name" required autocomplete="name"></label>
+          <label>Telefon<input name="tel" type="tel" autocomplete="tel"></label>
+        </div>
+        <label>E-Mail<input name="email" type="email" required autocomplete="email"></label>
+        <label>Worum geht es?
+          <select name="thema">
+            <option>Küche</option><option>KüchenTuning</option><option>Schrank / Einbaumöbel</option>
+            <option>Badmöbel</option><option>Laden, Büro, Gaststätte</option><option>Naturbetten (SHIVA)</option><option>Etwas anderes</option>
+          </select>
+        </label>
+        <label>Ihre Nachricht<textarea name="nachricht" placeholder="z. B. Schrank für die Dachschräge, ca. 3 m breit"></textarea></label>
+        <label style="font-weight:400;display:flex;gap:8px;align-items:flex-start"><input type="checkbox" required style="margin-top:4px"> <span class="small">Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden (siehe Datenschutzerklärung).</span></label>
+        <button class="btn" type="submit">Anfrage senden</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Klaus Münch Schreinerei GmbH · Möbel Manufaktur<br>Hainbrunnenstraße 4 · 91301 Forchheim</div>
+    <div><a href="#">Impressum</a> · <a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a href="tel:+499191640805">Anrufen</a>
+  <a href="#kontakt">Termin anfragen</a>
+</div>
+
+</body>
+</html>
