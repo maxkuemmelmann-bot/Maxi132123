@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="2000" height="2000">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000" width="2000" height="2000">
 <g transform="translate(0.000000,1000.000000) scale(0.100000,-0.100000)"
 fill="#121615" stroke="none">
 <path d="M4800 9309 c-169 -8 -305 -21 -465 -44 -114 -17 -142 -23 -360 -76
