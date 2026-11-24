@@ -7,7 +7,7 @@ Jede Szene wird im Skript-Kopf beschrieben:
 
 Orte:     strasse, nacht, park, haus, autohaus, buehne
 Aktionen: steht, rennt, traurig, jubelt, springt, traegt, faehrt
-Extras:   autos, stau, sportwagen, leute, leute_lachen, lacher, mama, hund, katze,
+Extras:   autos, stau, sportwagen, leute, leute_lachen, lacher, mama, typ, hund, katze,
           pferd, stein, tisch, pokal, jury, regen, konfetti
 Jedes gesprochene "Huss" bekommt automatisch einen HUSS!-Effekt (Zoom, Text, Wumms).
 """
@@ -76,21 +76,81 @@ def gesicht(d, x, y, s, art):
         d.line([x - 22 * s, y + 28 * s, x + 22 * s, y + 26 * s], fill=SCHWARZ, width=breite)
 
 
-def figur(d, x, fuss_y, s, farben, arme=(0, 0), beine=(0, 0), mimik="froh", kopf_dreh=0):
-    """Klötzchen-Figur. arme/beine = Winkel links/rechts in Grad (0 = hängt runter)."""
+def heller(f, k=0.35):
+    return tuple(int(c + (255 - c) * k) for c in f)
+
+
+def glied(d, px, py, w, laenge, winkel, abschnitte):
+    """Arm/Bein aus mehreren Farb-Abschnitten, aufgehängt an (px, py) und gedreht.
+    abschnitte = Liste (von, bis, farbe) als Anteil der Länge (0..1)."""
+    a = math.radians(winkel)
+
+    def punkt(x, y):
+        return px + x * math.cos(a) - y * math.sin(a), py + x * math.sin(a) + y * math.cos(a)
+
+    for von, bis, farbe in abschnitte:
+        ecken = [punkt(-w / 2, von * laenge), punkt(w / 2, von * laenge),
+                 punkt(w / 2, bis * laenge), punkt(-w / 2, bis * laenge)]
+        d.polygon(ecken, fill=farbe, outline=dunkler(farbe), width=3)
+    return punkt(0, laenge)
+
+
+def figur(d, x, fuss_y, s, farben, arme=(0, 0), beine=(0, 0), mimik="froh", kopf_dreh=0,
+          hut="keiner", hutfarbe=(245, 245, 245)):
+    """Klötzchen-Figur im Stil klassischer Roblox-Avatare:
+    breiter Oberkörper, gleich lange Arme/Beine, kleiner runder Kopf, Ärmel mit Streifen."""
     haut, shirt, hose = farben
-    huefte = fuss_y - 200 * s
-    oben = huefte - 200 * s
-    kloetzchen(d, x - 48 * s, huefte, 94 * s, 200 * s, beine[0], hose)
-    kloetzchen(d, x + 48 * s, huefte, 94 * s, 200 * s, beine[1], hose)
-    d.rectangle([x - 95 * s, oben, x + 95 * s, huefte], fill=shirt, outline=dunkler(shirt), width=4)
-    hand_l = kloetzchen(d, x - 142 * s, oben + 8 * s, 90 * s, 195 * s, arme[0], haut)
-    hand_r = kloetzchen(d, x + 142 * s, oben + 8 * s, 90 * s, 195 * s, arme[1], haut)
-    kx, ky = x + kopf_dreh * s, oben - 82 * s
-    d.rounded_rectangle([kx - 78 * s, ky - 75 * s, kx + 78 * s, ky + 75 * s], radius=int(22 * s),
-                        fill=haut, outline=dunkler(haut), width=4)
-    gesicht(d, kx, ky, s, mimik)
-    return {"kopf": (kx, ky), "hand_l": hand_l, "hand_r": hand_r, "oben": ky - 75 * s}
+    lang = 190 * s                       # Länge von Armen, Beinen und Oberkörper
+    huefte = fuss_y - lang
+    oben = huefte - lang
+    schuh = dunkler(hose, 0.45)
+    for seite, winkel in ((-1, beine[0]), (1, beine[1])):
+        glied(d, x + seite * 47.5 * s, huefte, 95 * s, lang, winkel,
+              [(0, 0.84, hose), (0.84, 1, schuh)])
+    # Oberkörper mit Kragen, Schatten-Seite und Gürtel
+    d.rectangle([x - 95 * s, oben, x + 95 * s, huefte], fill=shirt, outline=dunkler(shirt), width=3)
+    d.rectangle([x + 75 * s, oben + 3, x + 93 * s, huefte - 3], fill=dunkler(shirt, 0.88))
+    d.polygon([(x - 32 * s, oben), (x + 32 * s, oben), (x, oben + 40 * s)], fill=dunkler(shirt, 0.72))
+    d.rectangle([x - 95 * s, huefte - 16 * s, x + 95 * s, huefte], fill=dunkler(hose, 0.75))
+    # Arme: Ärmel mit zwei Streifen, unten Hand
+    streifen = heller(shirt, 0.55)
+    aermel = [(0, 0.40, shirt), (0.40, 0.46, streifen), (0.46, 0.50, shirt), (0.50, 0.56, streifen),
+              (0.56, 0.62, shirt), (0.62, 1, haut)]
+    hand_l = glied(d, x - 142.5 * s, oben + 2 * s, 95 * s, lang, arme[0], aermel)
+    hand_r = glied(d, x + 142.5 * s, oben + 2 * s, 95 * s, lang, arme[1], aermel)
+    # Kopf: kleiner "Zylinder" mit Schattierung
+    kw, kh = 118 * s, 112 * s
+    kx, ky = x + kopf_dreh * s, oben - 4 * s - kh / 2
+    d.rounded_rectangle([kx - kw / 2, ky - kh / 2, kx + kw / 2, ky + kh / 2], radius=int(34 * s),
+                        fill=dunkler(haut, 0.85), outline=dunkler(haut, 0.7), width=3)
+    d.rounded_rectangle([kx - kw / 2 + 12 * s, ky - kh / 2 + 3, kx + kw / 2 - 18 * s, ky + kh / 2 - 3],
+                        radius=int(28 * s), fill=haut)
+    gesicht(d, kx, ky + 4 * s, s * 0.72, mimik)
+    kopf_oben = ky - kh / 2
+    if hut == "cap":
+        d.rounded_rectangle([kx - 62 * s, kopf_oben - 30 * s, kx + 62 * s, kopf_oben + 24 * s],
+                            radius=int(24 * s), fill=hutfarbe, outline=dunkler(hutfarbe), width=3)
+        d.ellipse([kx - 72 * s, kopf_oben + 8 * s, kx + 72 * s, kopf_oben + 34 * s],
+                  fill=shirt, outline=dunkler(shirt), width=3)
+        kopf_oben -= 30 * s
+    elif hut == "haare":
+        d.rounded_rectangle([kx - 63 * s, kopf_oben - 16 * s, kx + 63 * s, kopf_oben + 26 * s],
+                            radius=int(14 * s), fill=hutfarbe)
+        d.rectangle([kx - 63 * s, kopf_oben, kx - 48 * s, ky + 5 * s], fill=hutfarbe)
+        d.rectangle([kx + 48 * s, kopf_oben, kx + 63 * s, ky + 5 * s], fill=hutfarbe)
+        kopf_oben -= 16 * s
+    return {"kopf": (kx, ky), "hand_l": hand_l, "hand_r": hand_r, "oben": kopf_oben}
+
+
+def totenkopf(d, x, y, r):
+    """Kleiner Totenkopf (für Beleidigungen aus dem Nichts)."""
+    d.ellipse([x - r, y - r, x + r, y + r * 0.8], fill=WEISS, outline=SCHWARZ, width=6)
+    d.rectangle([x - r * 0.55, y + r * 0.5, x + r * 0.55, y + r * 1.15], fill=WEISS, outline=SCHWARZ, width=6)
+    for ax in (x - r * 0.42, x + r * 0.42):
+        d.ellipse([ax - r * 0.28, y - r * 0.2, ax + r * 0.28, y + r * 0.32], fill=SCHWARZ)
+    d.polygon([(x, y + r * 0.35), (x - r * 0.12, y + r * 0.58), (x + r * 0.12, y + r * 0.58)], fill=SCHWARZ)
+    for zx in (-0.25, 0, 0.25):
+        d.line([x + zx * r, y + r * 0.7, x + zx * r, y + r * 1.15], fill=SCHWARZ, width=5)
 
 
 def auto(d, x, y, s, farbe, richtung=1, sport=False):
@@ -111,8 +171,8 @@ def auto(d, x, y, s, farbe, richtung=1, sport=False):
     d.rectangle([lx - 10 * s, y - (35 + hoehe * 0.8) * s, lx + 10 * s, y - (35 + hoehe * 0.55) * s], fill=(255, 240, 150))
 
 
-def tier(d, art, x, fuss_y, t, farbe):
-    s = {"katze": 0.55, "hund": 0.8, "pferd": 1.6}[art]
+def tier(d, art, x, fuss_y, t, farbe, redet=False):
+    s = {"katze": 0.55, "hund": 1.0, "pferd": 1.6}[art]
     bob = abs(math.sin(t * 6)) * 6 * s
     koerper_y = fuss_y - 70 * s - bob
     for bx in (-55, -25, 25, 55):
@@ -126,6 +186,8 @@ def tier(d, art, x, fuss_y, t, farbe):
     d.polygon(ohr, fill=dunkler(farbe, 0.8))
     d.ellipse([kx + 5 * s, ky - 18 * s, kx + 19 * s, ky - 2 * s], fill=SCHWARZ)
     d.ellipse([kx + 30 * s, ky + 5 * s, kx + 46 * s, ky + 18 * s], fill=SCHWARZ)
+    if redet and int(t * 8) % 2 == 0:            # Maul auf beim Sprechen
+        d.rectangle([kx + 5 * s, ky + 24 * s, kx + 45 * s, ky + 38 * s], fill=SCHWARZ)
 
 
 def stein(d, x, y, s):
@@ -253,6 +315,7 @@ class Szene:
         self.stau = [zufallsfarbe(rng) for _ in range(5)]
         self.leute = [((rng.choice(["hell", "mittel", "dunkel"])), zufallsfarbe(rng), zufallsfarbe(rng))
                       for _ in range(3)]
+        self.leute_hut = [(rng.choice(["cap", "haare", "keiner"]), zufallsfarbe(rng)) for _ in range(3)]
         self.tierfarben = {"hund": rng.choice([(150, 95, 50), (230, 200, 150), (60, 50, 45)]),
                            "katze": rng.choice([(240, 150, 60), (150, 150, 160), (250, 250, 250)]),
                            "pferd": rng.choice([(130, 80, 40), (90, 60, 40), (235, 230, 220)])}
@@ -260,17 +323,25 @@ class Szene:
 
 
 class BlockFilm:
-    def __init__(self, kopf, szenen_zeiten, dauer, huss_zeiten, rng, fonts):
+    def __init__(self, kopf, szenen_zeiten, dauer, huss_zeiten, rng, fonts, booms=(), satz_starts=(),
+                 sprecher_zeiten=()):
         """szenen_zeiten = Liste (nummer, startzeit). Szenenbeschreibung kommt aus 'szene N' im Kopf."""
         self.fonts = fonts
-        f = [FARBEN.get(w.strip(), FARBEN["gelb"]) for w in kopf.get("figur", "hell, rot, blau").split(",")]
+        werte = [w.strip() for w in kopf.get("figur", "hell, rot, blau").split(",")]
+        f = [FARBEN.get(w, FARBEN["gelb"]) for w in werte[:3]]
         self.ich = (f + [FARBEN["hell"], FARBEN["rot"], FARBEN["blau"]])[:3]
+        self.ich_hut = werte[3] if len(werte) > 3 else "keiner"          # cap / haare / keiner
+        self.ich_hutfarbe = FARBEN.get(werte[4], (245, 245, 245)) if len(werte) > 4 else (245, 245, 245)
         self.szenen = []
         for i, (nr, start) in enumerate(szenen_zeiten):
             ende = szenen_zeiten[i + 1][1] if i + 1 < len(szenen_zeiten) else dauer
             beschr = kopf.get(f"szene {nr}", kopf.get(f"szene{nr}", "strasse | steht"))
             self.szenen.append((Szene(beschr, rng), start, ende))
         self.huss = huss_zeiten
+        self.booms = list(booms)
+        self.satz_starts = list(satz_starts)
+        self.sprecher_zeiten = list(sprecher_zeiten)
+        self.wackel = random.Random(7)
         self.konfetti = [(rng.uniform(0, B), rng.uniform(-1500, -20), rng.uniform(350, 750), rng.uniform(0, 6.28),
                           zufallsfarbe(rng)) for _ in range(140)]
         self.regen = [(rng.uniform(0, B), rng.uniform(0, H), rng.uniform(1300, 1800)) for _ in range(120)]
@@ -292,6 +363,12 @@ class BlockFilm:
             i = int(t0 * sr)
             stueck = (wumms + zisch)[: max(0, min(len(t), n_samples - i))]
             spur[i:i + len(stueck)] += stueck * 0.45
+        for t0 in self.booms:                   # tiefer "BOOM" bei Beleidigungen
+            t = np.arange(int(sr * 1.4)) / sr
+            boom = np.tanh(2.5 * (np.sin(2 * np.pi * 55 * t) + 0.5 * np.sin(2 * np.pi * 110 * t))) * np.exp(-t * 2.8)
+            i = int(t0 * sr)
+            stueck = boom[: max(0, min(len(t), n_samples - i))]
+            spur[i:i + len(stueck)] += stueck * 0.55
         for _, start, _ in self.szenen[1:]:     # leiser "Wusch" bei Szenenwechsel
             t = np.arange(int(sr * 0.25)) / sr
             wusch = np.convolve(rausch.normal(size=len(t)), np.ones(12) / 12, mode="same") * np.sin(np.pi * t / 0.25)
@@ -306,7 +383,10 @@ class BlockFilm:
             i += 1
         sz, start, ende = self.szenen[i]
         t = zeit - start
+        self._zeit = zeit
         huss_dt, huss_nr = self._huss_seit(zeit)
+        boom_dt = next((zeit - b for b in reversed(self.booms) if b <= zeit), None)
+        boom_aktiv = boom_dt is not None and boom_dt < 0.9
         huss_aktiv = huss_dt is not None and huss_dt < 0.45
 
         # Hintergrund (beim Rennen scrollt die Welt nach links)
@@ -346,17 +426,24 @@ class BlockFilm:
                 d.rectangle([tx, 1360, tx + 18, 1560], fill=(100, 62, 28))
         if "jury" in sz.extras:
             for k in range(3):
-                figur(d, 700 + k * 120, 1480, 0.38, self._leute(sz, k), mimik="lachen" if t > 1.5 else "neutral")
+                figur(d, 700 + k * 120, 1480, 0.38, self._leute(sz, k),
+                      mimik=self._mund("jury", "lachen" if t > 1.5 else "neutral"), **self._hut(sz, k))
             d.rectangle([620, 1400, 1060, 1500], fill=(50, 50, 60), outline=GOLD, width=5)
 
         # Nebenfiguren
         if "mama" in sz.extras:
             figur(d, 850, FUSS_Y, 0.85, (FARBEN["mittel"], FARBEN["lila"], FARBEN["schwarz"]),
-                  arme=(-35, 35), mimik="boese")
+                  arme=(-35, 35), mimik=self._mund("mama", "boese"), hut="haare", hutfarbe=(110, 60, 30))
+        if "typ" in sz.extras:                      # random Typ, der aus dem Nichts beleidigt
+            redet = self._redet("typ")
+            wackel = math.sin(t * 30) * 6 if redet else 0
+            figur(d, 870 + wackel, FUSS_Y, 0.85, (FARBEN["dunkel"], FARBEN["rot"], FARBEN["schwarz"]),
+                  arme=(150 if redet else 10, -10), mimik=self._mund("typ", "boese" if redet else "froh"),
+                  hut="cap", hutfarbe=FARBEN["schwarz"])
         if "lacher" in sz.extras:
             wackel = math.sin(t * 25) * 8
             figur(d, 860 + wackel, FUSS_Y, 0.8, (FARBEN["hell"], FARBEN["schwarz"], FARBEN["grau"]),
-                  arme=(150, -20), mimik="lachen")
+                  arme=(150, -20), mimik=self._mund("lacher", "lachen"), hut="cap", hutfarbe=FARBEN["rot"])
             if int(t * 3) % 2 == 0:
                 d.text((860, 980), "HAHAHA", font=self.fonts["klein"], fill=WEISS, anchor="mm",
                        stroke_width=5, stroke_fill=SCHWARZ)
@@ -366,13 +453,14 @@ class BlockFilm:
                     lacht = art == "leute_lachen"
                     wackel = math.sin(t * 22 + j) * 6 if lacht else math.sin(t * 2 + j) * 3
                     figur(d, x, FUSS_Y + wackel, s, self._leute(sz, j), mimik="lachen" if lacht else "froh",
-                          arme=(150 if lacht else 8, -8))
+                          arme=(150 if lacht else 8, -8), **self._hut(sz, j))
                     if lacht and (int(t * 3) + j) % 2 == 0:
                         d.text((x, FUSS_Y - 470), "HAHA", font=self.fonts["klein"], fill=WEISS, anchor="mm",
                                stroke_width=5, stroke_fill=SCHWARZ)
         for k, art in enumerate(("hund", "katze", "pferd")):
             if art in sz.extras:
-                tier(d, art, (130, 930, 870)[k] if art != "pferd" else 820, FUSS_Y + 10, t + k, sz.tierfarben[art])
+                tier(d, art, (150, 930, 870)[k] if art != "pferd" else 820, FUSS_Y + 10, t + k, sz.tierfarben[art],
+                     redet=self._redet(art))
 
         # Hauptfigur
         self._hauptfigur(d, sz, t, huss_aktiv)
@@ -392,13 +480,43 @@ class BlockFilm:
             self._huss_text(d, huss_dt, huss_nr)
         if t < 0.12 and i > 0:                     # kurzer Blitz beim Szenenwechsel
             bild = Image.blend(bild, Image.new("RGB", (B, H), WEISS), 0.6 * (1 - t / 0.12))
-        if huss_aktiv and huss_dt < 0.3:           # Kamera-Zoom bei Huss
-            z = 1 + 0.09 * (1 - huss_dt / 0.3)
+        if boom_aktiv:                              # Beleidigung: Totenkopf + roter Blitz
+            r = 95 * (1 + 0.6 * max(0, 1 - boom_dt / 0.12))
+            totenkopf(d, 870, 860, r)
+            if boom_dt < 0.35:
+                bild = Image.blend(bild, Image.new("RGB", (B, H), (200, 0, 0)), 0.35 * (1 - boom_dt / 0.35))
+
+        # Kamera: kleiner Zoom bei jedem neuen Satz, stärker bei Huss und Boom, Wackeln bei Boom
+        z, dx, dy = 1.0, 0, 0
+        satz_dt = next((zeit - s0 for s0 in reversed(self.satz_starts) if s0 <= zeit), 9)
+        if satz_dt < 0.25:
+            z = max(z, 1 + 0.045 * (1 - satz_dt / 0.25))
+        if huss_aktiv and huss_dt < 0.3:
+            z = max(z, 1 + 0.09 * (1 - huss_dt / 0.3))
+        if boom_aktiv and boom_dt < 0.5:
+            z = max(z, 1 + 0.15 * (1 - boom_dt / 0.5))
+            staerke = 28 * (1 - boom_dt / 0.5)
+            dx, dy = self.wackel.uniform(-staerke, staerke), self.wackel.uniform(-staerke, staerke)
+        if z > 1.001:
             w, h = int(B / z), int(H / z)
-            cx, cy = B // 2, int(FUSS_Y - 420)
-            links, oben = max(0, min(B - w, cx - w // 2)), max(0, min(H - h, cy - h // 2))
+            cx, cy = B // 2 + dx, int(FUSS_Y - 420 + dy)
+            links, oben = int(max(0, min(B - w, cx - w // 2))), int(max(0, min(H - h, cy - h // 2)))
             bild = bild.crop((links, oben, links + w, oben + h)).resize((B, H))
         return bild
+
+    def _redet(self, name):
+        """Spricht diese Figur gerade (laut {name} im Skript)?"""
+        return any(w == name and a <= self._zeit < e for w, a, e in self.sprecher_zeiten)
+
+    def _mund(self, name, mimik):
+        """Beim Sprechen geht der Mund auf und zu."""
+        if self._redet(name) and int(self._zeit * 8) % 2 == 0:
+            return "offen"
+        return mimik
+
+    def _hut(self, sz, j):
+        hut, farbe = sz.leute_hut[j % 3]
+        return {"hut": hut, "hutfarbe": farbe}
 
     def _leute(self, sz, j):
         haut, shirt, hose = sz.leute[j % 3]
@@ -410,6 +528,8 @@ class BlockFilm:
                  "steht": "neutral", "springt": "froh", "faehrt": "froh"}.get(a, "neutral")
         if huss:
             mimik = "offen"
+        elif any(0 <= self._zeit - b < 0.9 for b in self.booms):
+            mimik = "traurig"                       # getroffen von der Beleidigung
         arme, beine, kopf_dreh = (6, -6), (0, 0), 0
         if a == "rennt":
             w = math.sin(t * 16) * 40
@@ -433,10 +553,12 @@ class BlockFilm:
             fy -= math.sin(t * 2.5 + sz.phase) * 4      # leichtes Atmen
 
         if a == "faehrt":
-            info = figur(d, x + 30, fy - 120, 0.8, self.ich, arme=(160, -160) if t > 2 else (40, -40), mimik=mimik)
+            info = figur(d, x + 30, fy - 120, 0.8, self.ich, arme=(160, -160) if t > 2 else (40, -40), mimik=mimik,
+                         hut=self.ich_hut, hutfarbe=self.ich_hutfarbe)
             auto(d, x, FUSS_Y + 40, 1.6, (220, 30, 40), 1, sport=True)
             return
-        info = figur(d, x, fy, GROESSE, self.ich, arme, beine, mimik, kopf_dreh)
+        info = figur(d, x, fy, GROESSE, self.ich, arme, beine, mimik, kopf_dreh,
+                     hut=self.ich_hut, hutfarbe=self.ich_hutfarbe)
         if a == "traegt" or "stein" in sz.extras:
             if a == "traegt":
                 hx = (info["hand_l"][0] + info["hand_r"][0]) / 2

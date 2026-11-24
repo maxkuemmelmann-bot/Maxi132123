@@ -47,11 +47,11 @@ jobs:
           EREIGNIS: ${{ github.event_name }}
           ORDNER: ${{ matrix.ordner }}
         run: |
-          # Knopfdruck, neuer Branch oder Programm geändert -> alles rendern.
-          # Sonst nur die Skripte, die in diesem Push neu/geändert sind.
+          # Knopfdruck oder neuer Branch -> alles rendern.
+          # Sonst nur die Skripte, die in diesem Push neu/geändert sind
+          # (fertige Videos bleiben, auch wenn sich das Programm ändert).
           # Neuer Clip in ki_videos/NAME/ -> das Skript ki_videos/NAME.txt wird neu gerendert.
-          if [ "$EREIGNIS" != "push" ] || ! git cat-file -e "$VORHER" 2>/dev/null \
-             || git diff --name-only "$VORHER" HEAD | grep -qE '^(generator|\.github)/'; then
+          if [ "$EREIGNIS" != "push" ] || ! git cat-file -e "$VORHER" 2>/dev/null; then
             ZIELE="$ORDNER"
           else
             ZIELE=$(git diff --name-only --diff-filter=AM "$VORHER" HEAD -- "$ORDNER" | while read -r f; do

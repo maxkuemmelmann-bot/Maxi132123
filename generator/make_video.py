@@ -41,6 +41,7 @@ MIN_SEKUNDEN = 62          # TikTok zahlt nur für Videos ÜBER 1 Minute -> Puff
 START_TEMPO = 10           # Sprechtempo in % (positiv = schneller)
 MIN_TEMPO = -8             # langsamer als das klingt komisch
 EDGE_STIMME = "de-DE-ConradNeural"
+SPRECHER_FARBEN = [(230, 50, 60), (40, 120, 230), (150, 60, 210), (240, 120, 20), (30, 160, 90)]
 CX, CY, RADIUS = B // 2, 1010, 440   # Kreis-Arena für die Bälle
 
 FONT_PFADE = [
@@ -84,6 +85,8 @@ def entferne_marker(text):
     for wort in text.split():
         if re.fullmatch(r"\[[^\]\s]+\]", wort):
             marker.append((wort[1:-1].upper(), len(woerter)))
+        elif re.fullmatch(r"\{\w+\}", wort):          # {mama} = ab hier spricht Mama
+            marker.append(("@" + wort[1:-1].lower(), len(woerter)))
         else:
             woerter.append(wort)
     return " ".join(woerter), marker
@@ -107,20 +110,27 @@ def stille_abschneiden(a, schwelle=0.01):
     return a[laut[0]:laut[-1] + 1] if len(laut) else a
 
 
-def tts_edge(satz, pfad, tempo=0):
+def tts_edge(satz, pfad, tempo=0, stimme_spec=None):
+    """stimme_spec z. B. "de-DE-KillianNeural" oder "de-DE-KillianNeural|+15Hz" (höher)."""
     import edge_tts   # nur laden, wenn gebraucht
+    name, _, hoehe = (stimme_spec or EDGE_STIMME).partition("|")
     rate = f"{tempo:+d}%"          # z. B. "+10%" = 10 % schneller, "-5%" = langsamer
-    asyncio.run(edge_tts.Communicate(satz, EDGE_STIMME, rate=rate).save(str(pfad)))
+    asyncio.run(edge_tts.Communicate(satz, name.strip(), rate=rate,
+                                     pitch=hoehe.strip() or "+0Hz").save(str(pfad)))
 
 
-def tts_espeak(satz, pfad, tempo=0):
+def tts_espeak(satz, pfad, tempo=0, stimme_spec=None):
     woerter_pro_min = str(int(160 * (1 + tempo / 100)))
-    subprocess.run(["espeak-ng", "-v", "de", "-s", woerter_pro_min, "-w", str(pfad), satz],
-                   check=True, capture_output=True)
+    tonhoehe = str(30 + sum(map(ord, stimme_spec or "")) % 40)     # andere Figur = andere Tonhöhe
+    subprocess.run(["espeak-ng", "-v", "de", "-s", woerter_pro_min, "-p", tonhoehe,
+                    "-w", str(pfad), satz], check=True, capture_output=True)
 
 
-def sprich(saetze, stimme, tmp, tempo=0):
-    """Spricht Satz für Satz. Gibt Audio, Liste (wort, start, ende) und die Stimme zurück."""
+def sprich(saetze, stimme, tmp, tempo=0, satz_stimmen=None):
+    """Spricht Satz für Satz (jeder Satz kann eine eigene Stimme haben).
+    Gibt Audio, Liste (wort, start, ende), die Stimmen-Art und die Startzeiten der Sätze zurück."""
+    satz_stimmen = satz_stimmen or [None] * len(saetze)
+    kaputt = set()                  # Stimmen, die es nicht gibt -> Standardstimme
     if stimme in ("edge", "auto"):
         try:
             tts_edge("Test.", tmp / "test.mp3")
@@ -132,12 +142,26 @@ def sprich(saetze, stimme, tmp, tempo=0):
             stimme = "espeak"
     print(f"  Stimme: {stimme}")
 
-    teile, woerter, t = [], [], 0.0
+    teile, woerter, starts, t = [], [], [], 0.0
     pause = np.zeros(int(SR * 0.12), dtype=np.float32)
     for i, satz in enumerate(saetze):
         datei = tmp / f"satz{i}.{'mp3' if stimme == 'edge' else 'wav'}"
-        tts_edge(satz, datei, tempo) if stimme == "edge" else tts_espeak(satz, datei, tempo)
+        spec = satz_stimmen[i]
+        if stimme == "edge":
+            if spec in kaputt:
+                spec = None
+            try:
+                tts_edge(satz, datei, tempo, spec)
+            except Exception as fehler:
+                if spec is None:
+                    raise
+                print(f"  WARNUNG: Stimme '{spec}' geht nicht ({type(fehler).__name__}) -> Standardstimme")
+                kaputt.add(spec)
+                tts_edge(satz, datei, tempo)
+        else:
+            tts_espeak(satz, datei, tempo, spec)
         audio = stille_abschneiden(datei_zu_array(datei))
+        starts.append(t)
         dauer = len(audio) / SR
         # Wörter nach ihrer Länge über den Satz verteilen (lange Wörter = mehr Zeit)
         ws = satz.split()
@@ -149,7 +173,7 @@ def sprich(saetze, stimme, tmp, tempo=0):
             start += laenge
         teile += [audio, pause]
         t += dauer + len(pause) / SR
-    return np.concatenate(teile), woerter, stimme
+    return np.concatenate(teile), woerter, stimme, starts
 
 
 # ---------------- 3. Ball-Physik ----------------
@@ -297,6 +321,14 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
     marker_nr = {name: nr for name, nr in reversed(marker)}   # erstes Vorkommen zählt
     wende_nr, ziel_nr = marker_nr.get("WENDE"), marker_nr.get("ZIEL")
     szenen_nr = [(int(name), nr) for name, nr in marker if name.isdigit()]
+    boom_nr = [nr for name, nr in marker if name == "BOOM"]
+    # Stimmen: "STIMMEN: erzaehler=de-DE-FlorianMultilingualNeural, mama=de-DE-KatjaNeural"
+    stimmen = {}
+    for eintrag in kopf.get("stimmen", "").split(","):
+        if "=" in eintrag:
+            name, spec = eintrag.split("=", 1)
+            stimmen[name.strip().lower()] = spec.strip()
+    sprecher_marker = [(name[1:], nr) for name, nr in marker if name.startswith("@")]
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp = Path(tmp)
@@ -304,7 +336,21 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         # wird das Tempo automatisch so weit gesenkt, dass es passt (höchstens auf -8 %).
         tempo = START_TEMPO
         saetze = in_saetze(text)
-        stimme_audio, woerter, stimme = sprich(saetze, stimme, tmp, tempo)
+        # Wer spricht welchen Satz? {mama} -> ab hier spricht Mama, bis zum nächsten {name}
+        # oder bis zur nächsten Szene [n] (dann wieder der Erzähler).
+        wechsel = sorted([(i, n) for n, i in sprecher_marker] +
+                         [(i, "erzaehler") for _, i in szenen_nr], key=lambda e: e[0])
+        satz_sprecher, wort_sprecher, nr, wer = [], [], 0, "erzaehler"
+        for satz in saetze:
+            anzahl = len(satz.split())
+            for i, n in wechsel:
+                if nr <= i < nr + anzahl:
+                    wer = n
+            satz_sprecher.append(wer)
+            wort_sprecher += [wer] * anzahl
+            nr += anzahl
+        satz_stimmen = [stimmen.get(w, stimmen.get("erzaehler")) for w in satz_sprecher]
+        stimme_audio, woerter, stimme, satz_starts = sprich(saetze, stimme, tmp, tempo, satz_stimmen)
         sprech_dauer = len(stimme_audio) / SR
         ziel_dauer = MIN_SEKUNDEN - 1
         if sprech_dauer < ziel_dauer:
@@ -312,7 +358,7 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
             if noetig >= MIN_TEMPO:
                 print(f"  {sprech_dauer:.1f} s ist zu kurz -> spreche mit Tempo {noetig:+d} %")
                 tempo = noetig
-                stimme_audio, woerter, stimme = sprich(saetze, stimme, tmp, tempo)
+                stimme_audio, woerter, stimme, satz_starts = sprich(saetze, stimme, tmp, tempo, satz_stimmen)
                 sprech_dauer = len(stimme_audio) / SR
         print(f"  Sprechdauer: {sprech_dauer:.1f} s (Tempo {tempo:+d} %)")
         if sprech_dauer < MIN_SEKUNDEN - 4:
@@ -337,8 +383,12 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         elif stil == "block":
             huss = [w[1] for w in woerter if re.sub(r"\W", "", w[0]).lower().startswith("huss")]
             print(f"  Block-Story: {len(szenen)} Szenen, {len(huss)}x Huss")
+            sprecher_zeiten = [(w, satz_starts[i], satz_starts[i + 1] if i + 1 < len(satz_starts) else sprech_dauer)
+                               for i, w in enumerate(satz_sprecher)]
+            booms = [wort_zeit(nr) for nr in boom_nr]
             film = BlockFilm(kopf, szenen, dauer, huss, rng,
-                             {"klein": lade_font(54), "huss": lade_font(150)})
+                             {"klein": lade_font(54), "huss": lade_font(150)},
+                             booms=booms, satz_starts=satz_starts, sprecher_zeiten=sprecher_zeiten)
             audio += film.sound(n_samples, SR)
         elif stil == "rennen":
             wende = wort_zeit(wende_nr) if wende_nr is not None else sprech_dauer * 0.68
@@ -368,7 +418,7 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         font_unter = lade_font(100)
         font_titel = lade_font(56)
         font_klein, font_name = lade_font(46), lade_font(30)
-        text_y = {"rennen": 560, "clips": 1180, "block": 560}.get(stil, CY)   # Untertitel-Höhe
+        text_y = {"rennen": 560, "clips": 1180, "block": 640}.get(stil, CY)   # Untertitel-Höhe
         gruppen = gruppiere(woerter, font_unter)
         g = 0                              # Index der aktuellen Untertitel-Gruppe
         spur = 10                          # Länge der Ball-Spur in Bildern
@@ -406,6 +456,15 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
                           (255, 230, 0) if woerter[i][1] <= zeit < woerter[i][2] else "white")
                          for i in gruppen[g]]
                 zeichne_text_mittig(d, teile, font_unter, text_y)
+                wer = wort_sprecher[gruppen[g][0]]
+                if wer != "erzaehler":           # Namensschild: wer spricht gerade?
+                    farbe_name = SPRECHER_FARBEN[sum(map(ord, wer)) % len(SPRECHER_FARBEN)]
+                    schild = wer.upper() + ":"
+                    breite = font_titel.getlength(schild) + 40
+                    d.rounded_rectangle([(B - breite) / 2, text_y - 135, (B + breite) / 2, text_y - 65],
+                                        radius=18, fill=farbe_name)
+                    d.text((B / 2, text_y - 100), schild, font=font_titel, fill="white", anchor="mm",
+                           stroke_width=3, stroke_fill="black")
             else:
                 zeichne_text_mittig(d, [("FOLG FÜR", (255, 230, 0))], font_unter, text_y - 60)
                 zeichne_text_mittig(d, [("TEIL 2!", (255, 230, 0))], font_unter, text_y + 60)

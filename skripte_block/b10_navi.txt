@@ -1,0 +1,30 @@
+TITEL: Ich habe ein Auto gewonnen, aber das Navi hasst mich (Teil 2)
+BESCHREIBUNG: "Bitte einfach aussteigen." 🚗💀 #inthistown #huss #roast #robloxstory #storytime #teil2 #fyp #fürdich
+STIL: block
+FIGUR: hell, rot, blau
+STIMMEN: erzaehler=de-DE-FlorianMultilingualNeural, navi=de-DE-SeraphinaMultilingualNeural|+8Hz, lacher=de-DE-ConradNeural|+10Hz
+SZENE 1: strasse | faehrt |
+SZENE 2: strasse | faehrt | autos
+SZENE 3: strasse | faehrt | stau
+SZENE 4: strasse | traurig | sportwagen, leute_lachen
+SZENE 5: autohaus | traurig | lacher
+SZENE 6: autohaus | traurig | lacher, autos
+SZENE 7: nacht | faehrt |
+SZENE 8: nacht | faehrt | regen
+SZENE 9: strasse | faehrt | autos
+SZENE 10: strasse | faehrt | stau
+SZENE 11: strasse | jubelt | sportwagen, konfetti, leute
+SZENE 12: nacht | faehrt |
+---
+[1] Ich habe ein Auto gewonnen. Ich kann nicht Auto fahren. Und das Auto weiß das. {navi} Hallo. Ich bin dein Navi. Du tust mir jetzt schon leid.
+[2] Ich habe den Motor gestartet. {navi} Bitte wenden. Bitte noch mal wenden. [BOOM] Bitte einfach aussteigen.
+[3] Ich bin trotzdem losgefahren. Ganz langsam. Hinter mir haben alle gehupt. {navi} Sogar die Fußgänger überholen dich gerade.
+[4] Ich habe angehalten, um kurz durchzuatmen. Alle auf dem Gehweg haben gelacht. {navi} Ich lache auch. Innerlich. Ich bin ein Auto.
+[5] Ich bin zurück zum Autohändler gegangen. Zu dem Typen, der mich damals ausgelacht hat. {lacher} Was willst du denn schon wieder hier?
+[6] Ich habe gefragt, ob man das Navi ausschalten kann. {lacher} Nein. [BOOM] Es ist das Einzige an diesem Auto, das Ahnung hat.
+[7] Nachts habe ich heimlich geübt. Auf einem leeren Parkplatz. {navi} Es ist zwei Uhr nachts. Sogar die Laternen schämen sich für dich.
+[8] Aber ich habe weitergemacht. Jede Nacht. Kurve für Kurve. Im Regen. Bis das Navi irgendwann ganz still geworden ist.
+[9] Dann kam der Tag der Fahrprüfung. Ich bin durch die ganze Stadt gefahren. Perfekt. Kein einziger Fehler.
+[10] Sogar im Stau bin ich ruhig geblieben. Und dann hat das Navi zum ersten Mal etwas Nettes gesagt. {navi} Okay. Das war gar nicht so schlecht.
+[11] Ich habe bestanden. Die ganze Straße hat geklatscht. Ich war so stolz wie noch nie.
+[12] Und dann hat das Navi noch etwas gesagt. {navi} Neues Ziel. Das Haus deines Toasters. {erzaehler} Was da passiert ist, siehst du in Teil drei.
