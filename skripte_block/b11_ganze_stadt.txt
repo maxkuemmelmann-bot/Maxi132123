@@ -1,0 +1,30 @@
+TITEL: Heute hat mich die ganze Stadt beleidigt und ich weiß nicht warum
+BESCHREIBUNG: Am Ende kam raus, wer dahintersteckt 💀 #roast #huss #inthistown #robloxstory #storytime #fyp #fürdich
+STIL: block
+FIGUR: mittel, gruen, blau, cap, weiss
+STIMMEN: erzaehler=de-DE-FlorianMultilingualNeural, typ=de-DE-KillianNeural|-5Hz, lacher=de-DE-ConradNeural|+10Hz, hund=de-DE-KillianNeural|-15Hz, mama=de-DE-SeraphinaMultilingualNeural, jury=de-DE-KatjaNeural
+SZENE 1: strasse | steht | typ
+SZENE 2: strasse | traurig | typ
+SZENE 3: strasse | rennt | autos
+SZENE 4: autohaus | traurig | lacher
+SZENE 5: park | steht | hund
+SZENE 6: haus | traurig | mama
+SZENE 7: buehne | traurig | jury
+SZENE 8: nacht | traurig | regen
+SZENE 9: haus | steht |
+SZENE 10: haus | traurig | mama
+SZENE 11: haus | traurig | stein
+SZENE 12: strasse | springt |
+---
+[1] Heute hat mich die ganze Stadt beleidigt. Und ich weiß bis jetzt nicht, warum. Es fing mit einem Typen an der Ecke an. [BOOM] {typ} Bro, du siehst aus wie ein Ladebildschirm.
+[2] Ich habe mich umgedreht und wollte was sagen. Da hat er schon weitergeredet. {typ} Und deine Schuhe haben Angst vor dir.
+[3] Ich bin schnell weitergegangen. Huss. Huss. Huss. Ein Auto ist neben mir langsamer geworden, das Fenster ging runter, und jemand hat einfach nur gelacht.
+[4] Im Autohaus wollte ich mich verstecken. Der Verkäufer hat mich angeschaut. [BOOM] {lacher} Für dich haben wir leider nur den Rückwärtsgang.
+[5] Im Park kam ein Hund auf mich zu. Ich dachte: Endlich mal jemand Nettes. Er hat mich angeschaut. [BOOM] {hund} Nein. Einfach nein.
+[6] Zu Hause habe ich meiner Mutter alles erzählt. {mama} Schatz, die meinen das bestimmt nicht so. [BOOM] Obwohl. Deine Frisur ist schon sehr mutig.
+[7] Ich bin sogar zu einer Talentshow gegangen, um mich abzulenken. Ich bin nur auf die Bühne gelaufen. {jury} Null Punkte. Für das Laufen.
+[8] Draußen hat es angefangen zu regnen. Sogar der Regen ist mir ausgewichen. Ich stand da ganz allein.
+[9] Zu Hause wollte ich nur noch schlafen. Ich habe meine Jacke ausgezogen. Und dann hat meine Mutter plötzlich ganz laut gelacht.
+[10] {mama} Schatz. Dreh dich mal um. {erzaehler} Ich habe meine Jacke umgedreht. Und auf dem Rücken klebte ein Zettel.
+[11] Darauf stand in riesigen Buchstaben: Bitte beleidigen. Und ganz unten stand klein: Liebe Grüße, dein Toaster.
+[12] Morgen gehe ich zu diesem Toaster. Und dieses Mal beleidige ich zurück. Wie das ausgeht, siehst du in Teil zwei.

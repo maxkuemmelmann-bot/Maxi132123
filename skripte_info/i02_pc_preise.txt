@@ -1,0 +1,32 @@
+TITEL: Warum PCs und Konsolen gerade so teuer werden
+BESCHREIBUNG: KI frisst die Speicherchips 💸🖥️ Hättest du das gedacht? Quellen: Statistisches Bundesamt, Netzwelt, TrendForce #gaming #pc #ram #blackfriday #ki #wissen #news #fyp #fürdich
+STIL: info
+KATEGORIE: TECH
+TEMPO: 5
+STIMMEN: erzaehler=de-DE-SeraphinaMultilingualNeural
+QUELLEN: Statistisches Bundesamt (Verbraucherpreise Okt. 2026), Netzwelt, TrendForce
+SZENE 1: titel | Gaming-PC oder Konsole kaufen? | Erst das hier wissen
+SZENE 2: zahl | fast +15 % | Laptops (Oktober 2026 im Vergleich zum Vorjahr)
+SZENE 3: balken | Laptops: 15; Desktop-PCs: 13; Spielkonsolen: 13 | % teurer als vor einem Jahr (gerundet)
+SZENE 4: liste | KI läuft in riesigen Rechenzentren; Die brauchen extrem viel Speicher; Tech-Firmen kaufen riesige Mengen
+SZENE 5: titel | Speicherchips werden knapp | Für PCs, Laptops und Konsolen bleibt weniger übrig
+SZENE 6: titel | DDR5-Arbeitsspeicher | Hier ist es besonders krass
+SZENE 7: zahl | +507 % | DDR5-RAM im Vergleich zu Juli 2025
+SZENE 8: zahl | +146 % | SSDs im Vergleich zu Juli 2025
+SZENE 9: zahl | +13 bis 18 % | erwartet für PC-Speicher bis Ende 2026 (TrendForce)
+SZENE 10: liste | Aufrüsten ist gerade teuer; Warten bringt wohl wenig; Preise immer vergleichen
+SZENE 11: titel | Black Friday: 27. November | Nicht jeder Rabatt ist ein echter Rabatt
+SZENE 12: frage | Hättest du gedacht, dass KI deinen PC teurer macht? | Schreib es in die Kommentare
+---
+[1] Du willst dir einen neuen Gaming-PC oder eine Konsole kaufen? Dann solltest du das hier wissen. Die Preise steigen gerade richtig stark. Und schuld ist künstliche Intelligenz.
+[2] Laut Statistischem Bundesamt waren Laptops im Oktober fast fünfzehn Prozent teurer als ein Jahr vorher.
+[3] Desktop-PCs kosteten gut dreizehn Prozent mehr. Und Spielkonsolen ebenfalls rund dreizehn Prozent.
+[4] Aber was hat das mit KI zu tun? Ganz einfach. KI-Programme laufen in riesigen Rechenzentren. Und die brauchen gigantische Mengen an Speicherchips.
+[5] Die großen Tech-Firmen kaufen deshalb Speicher in riesigen Mengen. Für normale PCs, Laptops und Konsolen bleibt weniger übrig.
+[6] Und wenn etwas knapp ist, wird es teuer. Beim Arbeitsspeicher DDR5 ist das besonders krass.
+[7] Laut dem Techportal Netzwelt kostet DDR5-RAM im Handel im Schnitt über fünfhundert Prozent mehr als im Juli 2025. Also ungefähr das Sechsfache.
+[8] Auch SSDs, also die Speicher, auf denen deine Spiele liegen, sind um rund hundertsechsundvierzig Prozent teurer geworden.
+[9] Und es geht weiter. Das Marktforschungsinstitut TrendForce erwartet, dass Arbeitsspeicher für PCs bis Ende des Jahres nochmal dreizehn bis achtzehn Prozent teurer wird.
+[10] Was heißt das für dich? Aufrüsten ist gerade teuer. Und auf sinkende Preise zu warten, bringt im Moment wahrscheinlich wenig.
+[11] Am Black Friday am siebenundzwanzigsten November lohnt es sich trotzdem, Preise zu vergleichen. Denn nicht jeder Rabatt ist wirklich einer.
+[12] Hättest du gedacht, dass KI deinen nächsten PC teurer macht? Schreib es in die Kommentare. Und folg mir für mehr.

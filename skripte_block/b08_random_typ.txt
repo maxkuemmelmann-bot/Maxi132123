@@ -1,0 +1,30 @@
+TITEL: Jedes Mal, wenn ich rausgehe, beleidigt mich dieser Typ
+BESCHREIBUNG: Er stand drei Wochen an derselben Stelle 💀 #roast #npc #huss #robloxstory #storytime #fyp #fürdich
+STIL: block
+FIGUR: hell, gruen, blau, cap, weiss
+STIMMEN: erzaehler=de-DE-FlorianMultilingualNeural, typ=de-DE-KillianNeural|-5Hz, mama=de-DE-SeraphinaMultilingualNeural
+SZENE 1: strasse | steht | typ
+SZENE 2: strasse | traurig | typ
+SZENE 3: haus | traurig | mama
+SZENE 4: park | steht | typ
+SZENE 5: nacht | rennt |
+SZENE 6: nacht | traurig | typ
+SZENE 7: haus | springt |
+SZENE 8: strasse | steht | typ, leute
+SZENE 9: strasse | steht | typ
+SZENE 10: strasse | jubelt | typ, leute_lachen
+SZENE 11: strasse | jubelt | leute, konfetti
+SZENE 12: strasse | traurig | typ
+---
+[1] Jedes Mal, wenn ich aus dem Haus gehe, steht da dieser Typ. Und jedes Mal sagt er was. [BOOM] {typ} Alter, dein Gesicht hat Lag.
+[2] Ich habe nichts gemacht. Ich stand einfach nur da. [BOOM] {typ} Du siehst aus wie ein Avatar, den keiner fertig gebaut hat.
+[3] Zu Hause habe ich meiner Mutter davon erzählt. {mama} Ignorier ihn einfach, Schatz. Und räum endlich dein Zimmer auf.
+[4] Also habe ich ihn ignoriert. Ich bin in den Park gegangen. Und wer steht da neben der Bank? [BOOM] {typ} Deine Frisur hat weniger Details als ein Würfel.
+[5] Ich bin weggerannt. Ganz weit weg. Huss. Huss. Huss.
+[6] Mitten in der Nacht, in der dunkelsten Straße der Stadt. Er steht unter der Laterne. [BOOM] {typ} Sogar dein Schatten will nicht mit dir gesehen werden.
+[7] Da wusste ich: So geht das nicht weiter. Ich habe trainiert. Jeden Abend vor dem Spiegel. Ich habe mir die besten Konter ausgedacht.
+[8] Am nächsten Morgen war die ganze Straße da. Er hat mich gesehen und Luft geholt. {typ} Alter, du siehst aus wie ein, äh.
+[9] Und bevor er fertig war, habe ich gesagt: Du stehst seit drei Wochen an genau derselben Stelle. [BOOM] Du bist ein NPC.
+[10] Die ganze Straße hat geschrien. Der Typ hat sich nicht bewegt. Er hat nicht mal geblinzelt. Zehn Sekunden lang.
+[11] Dann hat er sich umgedreht und ist einfach gegangen. Alle haben geklatscht. Ich hatte gewonnen.
+[12] Aber heute Morgen stand da ein neuer Typ. Und er hat schon Luft geholt.

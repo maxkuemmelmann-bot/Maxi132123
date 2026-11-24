@@ -1,0 +1,32 @@
+TITEL: Diese zwei Schwarzen Löcher dürfte es eigentlich nicht geben
+BESCHREIBUNG: 13 Milliarden Jahre in die Vergangenheit geschaut 🌌🕳️ Quelle: The Astrophysical Journal Letters, NOIRLab #weltall #schwarzesloch #astronomie #jwst #wissen #fyp #fürdich
+STIL: info
+KATEGORIE: WELTALL
+TEMPO: 5
+STIMMEN: erzaehler=de-DE-SeraphinaMultilingualNeural
+QUELLEN: Onorato et al., The Astrophysical Journal Letters (Nov. 2026); NOIRLab; ScienceDaily
+SZENE 1: titel | 2 Monster-Schwarze-Löcher | vom Anfang des Universums
+SZENE 2: balken | Damals: 0,9; Heute: 13,8 | Alter des Universums in Milliarden Jahren
+SZENE 3: liste | Quasar = Schwarzes Loch, das Gas frisst; Heller als eine ganze Galaxie; Gehört zu den hellsten Objekten im All
+SZENE 4: zahl | 18.100 | Lichtjahre Abstand zwischen den beiden
+SZENE 5: balken | Großes Loch: 1.500; Kleines Loch: 400 | Millionen Sonnenmassen
+SZENE 6: liste | Gefunden: James-Webb-Teleskop; Genauer aufgelöst: Gemini North (Hawaii)
+SZENE 7: titel | Nāpōwawāʻenakaulua | Spitzname · offiziell J1602+4228AB
+SZENE 8: zahl | Nr. 3 | bekanntes Quasar-Paar aus der Frühzeit des Universums
+SZENE 9: frage | Wie wurden sie so schnell so riesig? | Bisher kann das niemand erklären
+SZENE 10: liste | Besonders dichte Region; Sehr viel Gas als Futter; Galaxien, die sich nahe kommen
+SZENE 11: titel | The Astrophysical Journal Letters | November 2026 · Team um Silvia Onorato
+SZENE 12: zahl | fast 13 Mrd. Jahre | in die Vergangenheit geschaut
+---
+[1] Astronomen haben zwei riesige Schwarze Löcher entdeckt, die es nach heutigem Wissen eigentlich gar nicht geben dürfte. Und sie stammen fast vom Anfang des Universums.
+[2] Das Licht, das wir heute von ihnen sehen, ist losgeflogen, als das Universum gerade mal neunhundert Millionen Jahre alt war. Heute ist es fast vierzehn Milliarden Jahre alt.
+[3] Die beiden sind sogenannte Quasare. Dabei frisst ein Schwarzes Loch so viel Gas, dass es heller leuchtet als eine ganze Galaxie. Quasare gehören zu den hellsten Objekten im All.
+[4] Und hier sind es gleich zwei. Ganz nah beieinander. Nur etwa achtzehntausend Lichtjahre voneinander entfernt. Für das Weltall ist das fast Nachbarschaft.
+[5] Das größere Schwarze Loch ist so schwer wie anderthalb Milliarden Sonnen. Das kleinere immer noch so schwer wie vierhundert Millionen Sonnen.
+[6] Entdeckt wurden sie in Daten des James-Webb-Weltraumteleskops. Genauer aufgelöst hat sie dann das Gemini-North-Teleskop auf Hawaii.
+[7] Deshalb haben sie auch einen hawaiianischen Spitznamen bekommen. Er ist so lang, dass wir ihn hier lieber nur einblenden.
+[8] Es ist erst das dritte bekannte Quasar-Paar aus dieser frühen Zeit. Und das älteste kompakte Paar, das je gefunden wurde.
+[9] Jetzt kommt das Rätsel. Niemand kann bisher erklären, wie zwei Schwarze Löcher so früh schon so riesig werden konnten.
+[10] Die Forschenden vermuten, dass sie in einer besonders dichten Region des frühen Universums saßen. Dort hatten sie extrem viel Futter.
+[11] Veröffentlicht wurde die Entdeckung im November 2026 im Fachjournal The Astrophysical Journal Letters.
+[12] Schon verrückt. Wir schauen hier fast dreizehn Milliarden Jahre in die Vergangenheit. Folg mir, wenn du mehr über das Universum wissen willst.
