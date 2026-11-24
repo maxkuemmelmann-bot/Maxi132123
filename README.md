@@ -13,6 +13,8 @@ Den kompletten Plan findest du in **[BUSINESSPLAN.md](BUSINESSPLAN.md)**.
 | `skripte_block/` | Klötzchen-Storytime im „In dieser Stadt … außer mir. Huss. Huss. Huss.“-Stil, komplett automatisch |
 | `generator/block.py` | Zeichnet Klötzchen-Figuren, Städte, Autos, Tiere + HUSS!-Effekt |
 | `ki_videos/` | KI-Frucht-Storys: Skript + Ordner für deine Clips |
+| `skripte_info/` | Info-Videos zu aktuellen Themen (Infokarten, Frauenstimme, ruhige Musik) |
+| `generator/info.py` | Zeichnet die Infokarten: Zahlen, Balken, Listen, Fragen |
 | `generator/clips.py` | Schneidet deine Clips passend zur Erzählung zusammen |
 | `.github/workflows/videos.yml` | Rendert alle Videos automatisch auf GitHub (mit guter KI-Stimme) |
 | `BUSINESSPLAN.md` | Geld verdienen, Rechnung, Posting-Plan, Regeln |

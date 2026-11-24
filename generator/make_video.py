@@ -30,6 +30,7 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 from block import BlockFilm
+from info import InfoFilm
 from clips import ClipFilm
 from rennen import Rennen
 
@@ -334,7 +335,7 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         tmp = Path(tmp)
         # Erst zügig sprechen (Brainrot = schnell). Ist es zu kurz für über 1 Minute,
         # wird das Tempo automatisch so weit gesenkt, dass es passt (höchstens auf -8 %).
-        tempo = START_TEMPO
+        tempo = int(kopf.get("tempo", START_TEMPO))   # Kopfzeile TEMPO: z. B. 0 für ruhig
         saetze = in_saetze(text)
         # Wer spricht welchen Satz? {mama} -> ab hier spricht Mama, bis zum nächsten {name}
         # oder bis zur nächsten Szene [n] (dann wieder der Erzähler).
@@ -380,6 +381,9 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
         szenen[0] = (szenen[0][0], 0.0)              # erste Szene startet sofort
         if stil == "clips":
             film = ClipFilm(skript.with_suffix(""), szenen, dauer, lade_font(100))
+        elif stil == "info":
+            film = InfoFilm(kopf, szenen, dauer, lade_font)
+            audio += film.sound(n_samples, SR)
         elif stil == "block":
             huss = [w[1] for w in woerter if re.sub(r"\W", "", w[0]).lower().startswith("huss")]
             print(f"  Block-Story: {len(szenen)} Szenen, {len(huss)}x Huss")
@@ -415,22 +419,22 @@ def mache_video(skript, ausgabe_ordner, stimme, stil):
              "-c:a", "aac", "-b:a", "192k", "-shortest", "-movflags", "+faststart", str(ziel)],
             stdin=subprocess.PIPE)
 
-        font_unter = lade_font(100)
+        font_unter = lade_font(80 if stil == "info" else 100)
         font_titel = lade_font(56)
         font_klein, font_name = lade_font(46), lade_font(30)
-        text_y = {"rennen": 560, "clips": 1180, "block": 640}.get(stil, CY)   # Untertitel-Höhe
+        text_y = {"rennen": 560, "clips": 1180, "block": 640, "info": 1470}.get(stil, CY)   # Untertitel-Höhe
         gruppen = gruppiere(woerter, font_unter)
         g = 0                              # Index der aktuellen Untertitel-Gruppe
         spur = 10                          # Länge der Ball-Spur in Bildern
 
         for f in range(n_frames):
             zeit = f / FPS
-            if stil in ("clips", "block"):
+            if stil in ("clips", "block", "info"):
                 bild = film.bild(zeit)
             else:
                 bild = Image.new("RGB", (B, H), (10, 10, 20))
             d = ImageDraw.Draw(bild)
-            if stil in ("clips", "block"):
+            if stil in ("clips", "block", "info"):
                 pass                       # Bild kommt komplett aus dem Film
             elif stil == "rennen":
                 rennen.zeichne(d, f, zeit, font_klein, font_name)
@@ -488,7 +492,7 @@ def main():
     p.add_argument("--out", default="videos", help="Ausgabe-Ordner (Standard: videos)")
     p.add_argument("--stimme", choices=["edge", "espeak", "auto"], default="edge",
                    help="edge = gute Stimme (Internet nötig), espeak = Roboter, auto = edge oder Roboter")
-    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen", "clips", "block"],
+    p.add_argument("--stil", choices=["wachsen", "chaos", "rennen", "clips", "block", "info"],
                    help="Hintergrund (sonst aus dem Skript oder zufällig)")
     args = p.parse_args()
 
